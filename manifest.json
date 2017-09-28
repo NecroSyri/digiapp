@@ -1,0 +1,24 @@
+{
+    "name": "DigiApp",
+    "description": "Raise a discret digipet in your browser.",
+    "version": "0.1",
+    "manifest_version": 2,
+    "icons": {
+        "16":"img/ico/16-b.png",
+        "48":"img/ico/48-b.png",
+        "128": "img/ico/128-b.png"
+    },
+    "browser_action": {
+        "default_icon": "img/ico/16-w.png",
+        "default_title":"DigiApp options",
+        "default_popup": "pages/popup.html"
+    },
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "content_scripts": [ {
+        "js": [ "js/jquery-3.2.1.min.js"],
+        "matches": [ "http://*/*", "https://*/*"]
+    }]
+}
