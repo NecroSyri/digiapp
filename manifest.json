@@ -22,7 +22,8 @@
     }
   },
   "background": {
-    "page": "pages/background.html"
+    "page": "pages/background.html",
+    "matches": [ "http://*/*", "https://*/*"]
   },
   "permissions": [
     "activeTab",
