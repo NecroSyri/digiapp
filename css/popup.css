@@ -1,3 +1,50 @@
-*{
-    width: 500px;
+.js_username{
+  top:0;
+  right:5;
+  position:absolute;
+  z-index:1;
+  decoration:none;
+  color:black;
 }
+body{
+  width: 232px;
+  height:164px;
+}
+#digivice{
+  position:absolute;
+  margin:0;
+  padding:0;
+  background:#ccc;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:0;
+}
+#screen{
+  position:absolute;
+  width:150px;
+  height:150px;
+  top:15px;
+  left:15px;
+  background:#eee;
+}
+.button{
+  position:absolute;
+  width:20px;
+  height:20px;
+  background:#333;
+}
+#buttonA{
+  right:30px;
+  top:30px;
+}
+#buttonB{
+  right:30px;
+  top:80px;
+}
+#buttonC{
+  right:30px;
+  top:130px;
+}
+/*58 41*/
