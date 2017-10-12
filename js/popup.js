@@ -1,31 +1,9 @@
+var d={};
+
 var username = localStorage.getItem("username");
-var setup = localStorage.getItem("setup");
-var option = localStorage.getItem("option");
-var egg = localStorage.getItem("egg");
-if(setup == null){
-    //first visit
-    option = "egg";
-    localStorage.setItem("option",option);
-    if(egg == null){
-      $(".inscreen").html("egg A");
-      egg = "a"
-      localStorage.setItem("egg",egg);
-    }else{
-      switch(egg){
-        case "a":
-          $(".inscreen").html("egg A");
-        break;
-        case "b":
-          $(".inscreen").html("egg B");
-        break;
-        case "c":
-          $(".inscreen").html("egg C");
-        break;
-      }
-    }
-}else{
-    //resume
-}
+
+init();
+
 if(username == null){
     //$("#welcomeMessage").hide();
 }else{
@@ -57,7 +35,7 @@ $("body").keypress(function(key){
     case 118:
       localStorage.removeItem("egg");
       localStorage.removeItem("option");
-      localStorage.removeItem("setup");
+      localStorage.removeItem("chooseEgg");
     break;
     default :
       $(".js_username").html(key.which);
@@ -66,14 +44,14 @@ $("body").keypress(function(key){
 });
 
 function select(){
-  switch(option){
+  switch(d.option){
     case "egg":
       select_egg();
     break;
   }
 }
 function confirm(){
-  switch(option){
+  switch(d.option){
     case "egg":
       confirm_egg();
     break;
@@ -83,23 +61,58 @@ function cancel(){
 
 }
 
+// init
+function init(){
+  d.chooseEgg = localStorage.getItem("chooseEgg");
+  d.option = localStorage.getItem("option");
+  d.egg = localStorage.getItem("egg");
+
+  if(d.chooseEgg == null){
+      //first visit
+      d.option = "egg";
+      localStorage.setItem("option",d.option);
+      if(d.egg == null){
+        $(".inscreen").html("egg A");
+        d.egg = "a"
+        localStorage.setItem("egg",d.egg);
+      }else{
+        switch(d.egg){
+          case "a":
+            $(".inscreen").html("egg A");
+          break;
+          case "b":
+            $(".inscreen").html("egg B");
+          break;
+          case "c":
+            $(".inscreen").html("egg C");
+          break;
+        }
+      }
+  }else{
+      //resume
+  }
+}
+
 // Egg selection
+function chooseEgg(){
+
+}
 function select_egg(){
-  switch(egg){
+  switch(d.egg){
     case "a":
       $(".inscreen").html("egg B");
-      egg="b";
+      d.egg="b";
     break;
     case "b":
       $(".inscreen").html("egg C");
-      egg="c";
+      d.egg="c";
     break;
     case "c":
       $(".inscreen").html("egg A");
-      egg="a";
+      d.egg="a";
     break;
   }
-  localStorage.setItem("egg",egg);
+  localStorage.setItem("egg",d.egg);
 }
 function confirm_egg(){
 
