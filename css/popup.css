@@ -29,6 +29,32 @@ body{
   left:15px;
   background:#eee;
 }
+.menu{
+  position:absolute;
+  width:150px;
+  height:25px;
+}
+.menu.top{
+  /*background:#ddd;*/
+}
+.inscreen{
+  position:absolute;
+  width:150px;
+  height:100px;
+  top:25px;
+  background:#ddd;
+}
+.menu.bottom{
+  top:125px;
+  /*background:#ddd;*/
+}
+.menu div{
+  float:left;
+  border:1px solid black;
+  width:25px;
+  height:25px;
+  text-align:center;
+}
 .button{
   position:absolute;
   width:20px;
