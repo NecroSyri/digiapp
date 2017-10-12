@@ -3,7 +3,7 @@
   right:5;
   position:absolute;
   z-index:1;
-  decoration:none;
+  text-decoration:none;
   color:black;
 }
 body{
