@@ -33,6 +33,7 @@ body{
   position:absolute;
   width:150px;
   height:25px;
+  display:flex;
 }
 .menu.top{
   /*background:#ddd;*/
@@ -49,6 +50,7 @@ body{
   /*background:#ddd;*/
 }
 .menu div{
+  margin:auto;
   float:left;
   border:1px solid black;
   width:25px;
