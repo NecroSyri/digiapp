@@ -1,3 +1,13 @@
+var popupPort;
+chrome.runtime.onConnect.addListener(function(port) {
+  if(port.name == "P1") {
+    popupPort = port;
+    popupPort.onDisconnect.addListener(function() {
+      //popup close
+    });
+  }
+});
+
 var overlayOn = false;
 var overlayCreated = false;
 chrome.commands.onCommand.addListener(function(command) {

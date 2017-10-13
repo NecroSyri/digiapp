@@ -1,4 +1,5 @@
 var d={};
+var bgPort = chrome.runtime.connect({name: "P1"});
 
 var username = localStorage.getItem("username");
 
@@ -139,7 +140,10 @@ function confirm_egg(){
   d.effort=0;
   d.energy=10;
 
+  d.evotime=60;
   d.mon = d.egg;
+
+  display();
 }
 
 //Menu
@@ -189,7 +193,7 @@ function cancel_menu(){
 
 //display
 function display(){
-
+  $(".inscreen").html(d.mon);
 }
 
 //Reset
