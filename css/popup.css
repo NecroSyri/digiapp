@@ -1,3 +1,5 @@
+/* size 58 x 41 cm */
+/* screen 32 x 16 px */
 .js_username{
   top:0;
   right:5;
@@ -58,6 +60,9 @@ body{
   height:25px;
   text-align:center;
 }
+.menu .selected{
+  background:#eee;
+}
 .button{
   position:absolute;
   width:20px;
@@ -76,4 +81,3 @@ body{
   right:30px;
   top:130px;
 }
-/*58 41*/
