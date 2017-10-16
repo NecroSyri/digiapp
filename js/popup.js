@@ -11,9 +11,16 @@ if(username == null){
     $(".js_username").html(username);
 }
 
-$("#buttonA").click(function(){select();});
-$("#buttonB").click(function(){confirm();});
-$("#buttonC").click(function(){cancel();});
+$("#stats").click(function(){select();});
+$("#food").click(function(){confirm();});
+$("#train").click(function(){cancel();});
+$("#battle").click(function(){confirm();});
+$("#clean").click(function(){cancel();});
+$("#light").click(function(){select();});
+$("#heal").click(function(){confirm();});
+$("#album").click(function(){cancel();});
+$("#connection").click(function(){confirm();});
+
 $("body").keypress(function(key){
   switch(key.which){
     // Z - select
@@ -108,35 +115,36 @@ function chooseEgg(){
     d.egg = "v1"
     localStorage.setItem("egg",d.egg);
   }else{
-    switch(d.egg){
-      case "a":
-        $(".inscreen").html("egg A");
-      break;
-      case "b":
-        $(".inscreen").html("egg B");
-      break;
-      case "c":
-        $(".inscreen").html("egg C");
-      break;
-    }
+    show_egg();
   }
 }
 function select_egg(){
   switch(d.egg){
     case "v1":
-      $(".inscreen").html("V2 egg");
       d.egg="v2";
     break;
     case "v2":
-      $(".inscreen").html("V3 egg");
       d.egg="v3";
     break;
     case "v3":
-      $(".inscreen").html("V1 egg");
       d.egg="v1";
     break;
   }
+  show_egg();
   localStorage.setItem("egg",d.egg);
+}
+function show_egg(){
+  switch(d.egg){
+    case "v1":
+      $(".inscreen").html("V1 egg");
+    break;
+    case "v2":
+      $(".inscreen").html("V2 egg");
+    break;
+    case "v3":
+      $(".inscreen").html("V3 egg");
+    break;
+  }
 }
 function confirm_egg(){
   //store chosen egg, set option to menu
