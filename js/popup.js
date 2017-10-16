@@ -84,6 +84,18 @@ function init(){
     chooseEgg();
   }else{
       //resume
+      d.mon = localStorage.getItem("mon");
+      display();
+
+      d.lastTime = localStorage.getItem("lastTime");
+      d.time = new Date();
+      if(d.lastTime==null){
+
+      }else{
+          console.log(d.time);
+          console.log(d.lastTime);
+          $("#testMessage").html(countSeconds(d.time,d.lastTime));
+      }
   }
 }
 
@@ -112,15 +124,15 @@ function chooseEgg(){
 function select_egg(){
   switch(d.egg){
     case "v1":
-      $(".inscreen").html("V1 egg");
+      $(".inscreen").html("V2 egg");
       d.egg="v2";
     break;
     case "v2":
-      $(".inscreen").html("V2 egg");
+      $(".inscreen").html("V3 egg");
       d.egg="v3";
     break;
     case "v3":
-      $(".inscreen").html("V3 egg");
+      $(".inscreen").html("V1 egg");
       d.egg="v1";
     break;
   }
@@ -142,6 +154,7 @@ function confirm_egg(){
 
   d.evotime=60;
   d.mon = d.egg;
+  localStorage.setItem("mon",d.mon);
 
   display();
 }
