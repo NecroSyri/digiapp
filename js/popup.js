@@ -111,23 +111,27 @@ function chooseEgg(){
   d.option = "egg";
   localStorage.setItem("option",d.option);
   if(d.egg == null){
-    $(".inscreen").html("V1 egg");
-    d.egg = "v1"
+    d.egg = "red"
     localStorage.setItem("egg",d.egg);
-  }else{
-    show_egg();
   }
+  show_egg()
 }
 function select_egg(){
   switch(d.egg){
-    case "v1":
-      d.egg="v2";
+    case "red":
+      d.egg="blue";
     break;
-    case "v2":
-      d.egg="v3";
+    case "blue":
+      d.egg="green";
     break;
-    case "v3":
-      d.egg="v1";
+    case "green":
+      d.egg="yellow";
+    break;
+    case "yellow":
+      d.egg="lightblue";
+    break;
+    case "lightblue":
+      d.egg="red";
     break;
   }
   show_egg();
@@ -135,14 +139,20 @@ function select_egg(){
 }
 function show_egg(){
   switch(d.egg){
-    case "v1":
-      $(".inscreen").html("V1 egg");
+    case "red":
+      $(".inscreen").html("Red egg");
     break;
-    case "v2":
-      $(".inscreen").html("V2 egg");
+    case "blue":
+      $(".inscreen").html("Blue egg");
     break;
-    case "v3":
-      $(".inscreen").html("V3 egg");
+    case "green":
+      $(".inscreen").html("Green egg");
+    break;
+    case "yellow":
+      $(".inscreen").html("Yellow egg");
+    break;
+    case "lightblue":
+      $(".inscreen").html("Light Blue egg");
     break;
   }
 }
