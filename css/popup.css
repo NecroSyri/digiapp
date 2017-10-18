@@ -8,6 +8,12 @@
   text-decoration:none;
   color:black;
 }
+#date{
+  bottom : -10px;
+  left : 5px;
+  position : absolute;
+  z-index: 1;
+}
 #testMessage{
     bottom: -10px;
     right: 5px;

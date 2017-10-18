@@ -8,7 +8,6 @@ chrome.runtime.onConnect.addListener(function(port) {
     });
   }
 });
-
 /*
 var overlayOn = false;
 var overlayCreated = false;

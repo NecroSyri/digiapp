@@ -25,37 +25,42 @@ Quota
 Battles :
 Dmg = Atk(*2 crit) - Def
 Speed : more speed = atk first
-if speed+/speed- >= 2 : Atk 2x 
+if speed+/speed- >= 2 : Atk 2x
+
+feed timer (X +/- var)
+feed variant (+/- X)
+
+sleep hour
 
 */
-function chart(mon,stage,stats){
-    switch(stage){
+function chart(o){
+    switch(o.stage){
         case "Egg":
-            return egg(mon);
+            return egg(o);
         break;
         case "Baby I":
-            return baby(mon);
+            return baby(o);
         break;
         case "Baby II":
-            return baby2(mon,stats);
+            return baby2(o);
         break;
         case "Rookie":
-            return rookie(mon,stats);
+            return rookie(o);
         break;
         case "Champion":
-            return champion(mon,stats);
+            return champion(o);
         break;
         case "Ultimate":
-            return ultimate(mon,stats);
+            return ultimate(o);
         break;
         case "Mega":
-            return mega(mon,stats);
+            return mega(o);
         break;
     }
 }
 
-function egg(mon){
-    switch(mon){
+function egg(o){
+    switch(o.mon){
         case "Red":
             return "Jarimon";
         break;
@@ -66,6 +71,11 @@ function egg(mon){
             return "Yuramon";
         break;
         case "Yellow":
+            //botamon
+            o.sleepTime="20h";
+            o.sleepVar="45m";
+            o.feedInterval="3h";
+            o.energy=10;
             return "Botamon";
         break;
         case "Light blue":
@@ -74,8 +84,8 @@ function egg(mon){
     }
 }
 
-function baby(mon){
-    switch(mon){
+function baby(o){
+    switch(o.mon){
         case "Jarimon":
             return "Gigimon";
         break;
@@ -94,40 +104,40 @@ function baby(mon){
     }
 }
 
-function baby2(mon,stats){
-    switch(mon){
+function baby2(o){
+    switch(o.mon){
         case "":
 
         break;
     }
 }
 
-function rookie(mon,stats){
-    switch(mon){
+function rookie(o){
+    switch(o.mon){
         case "":
 
         break;
     }
 }
 
-function champion(mon,stats){
-    switch(mon){
+function champion(o){
+    switch(o.mon){
         case "":
 
         break;
     }
 }
 
-function ultimate(mon,stats){
-    switch(mon){
+function ultimate(o){
+    switch(o.mon){
         case "":
 
         break;
     }
 }
 
-function mega(mon,stats){
-    switch(mon){
+function mega(o){
+    switch(o.mon){
         case "":
 
         break;
