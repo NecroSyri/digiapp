@@ -1,5 +1,6 @@
 var d={};
 var bgPort = chrome.runtime.connect({name: "P1"});
+setInterval(function(){getDate()}, 1000);
 
 var username = localStorage.getItem("username");
 
