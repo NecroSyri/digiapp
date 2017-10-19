@@ -1,6 +1,8 @@
+var d = {};
 var popupPort;
 chrome.runtime.onConnect.addListener(function(port) {
   if(port.name == "P1") {
+    init();
     popupPort = port;
     popupPort.onDisconnect.addListener(function() {
         var time = new Date()
@@ -8,6 +10,19 @@ chrome.runtime.onConnect.addListener(function(port) {
     });
   }
 });
+
+setInterval(function(){tick()}, 1000);
+function tick(){
+
+}
+
+function init(){
+  d.hunger=localStorage.getItem("hunger");
+  d.strength=localStorage.getItem("strength");
+  d.feedInterval=localStorage.getItem("feedInterval");
+//  d.feed
+//local time vs real time
+}
 /*
 var overlayOn = false;
 var overlayCreated = false;
