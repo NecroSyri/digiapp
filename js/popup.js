@@ -233,6 +233,11 @@ function reset(){
   localStorage.removeItem("egg");
   localStorage.removeItem("option");
   localStorage.removeItem("chooseEgg");
+
+  localStorage.removeItem("h");
+  localStorage.removeItem("m");
+  localStorage.removeItem("s");
+
   d.menu="";
   $(".menu div").removeClass("selected");
   init();
