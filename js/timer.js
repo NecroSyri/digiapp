@@ -4,8 +4,8 @@ function nextHungry(o){
 
 function getDate(){
   var time = new Date();
-  var h = ("0"+time.getHours()).slice(-2)
-  var m = ("0"+time.getMinutes()).slice(-2)
-  var s = ("0"+time.getSeconds()).slice(-2)
-  $("#date").html(h+":"+m+":"+s);
+  d.h = ("0"+time.getHours()).slice(-2)
+  d.m = ("0"+time.getMinutes()).slice(-2)
+  d.s = ("0"+time.getSeconds()).slice(-2)
+  $("#date").html(d.h+":"+d.m+":"+d.s);
 }

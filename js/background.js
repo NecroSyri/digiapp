@@ -13,13 +13,22 @@ chrome.runtime.onConnect.addListener(function(port) {
 
 setInterval(function(){tick()}, 1000);
 function tick(){
-
+  timePass(){}
 }
 
 function init(){
   d.hunger=localStorage.getItem("hunger");
   d.strength=localStorage.getItem("strength");
   d.feedInterval=localStorage.getItem("feedInterval");
+
+  d.h = localStorage.getItem("h");
+  d.m = localStorage.getItem("m");
+  d.s = localStorage.getItem("s");
+  if(d.h==null || d.m==null || d.s==null){
+    d.h=0;
+    d.m=0;
+    d.s=0;
+  }
 //  d.feed
 //local time vs real time
 }
