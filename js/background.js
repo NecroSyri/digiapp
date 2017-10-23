@@ -66,6 +66,10 @@ function reset(){
   d.s=0;
   init();
 }
+
+function getTime(){
+  alert(d.h+":"+d.m+":"+d.s);
+}
 /*
 var overlayOn = false;
 var overlayCreated = false;
