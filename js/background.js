@@ -13,7 +13,25 @@ chrome.runtime.onConnect.addListener(function(port) {
 
 setInterval(function(){tick()}, 1000);
 function tick(){
-  timePass(){}
+  timePass();
+}
+
+function timePass(){
+  if(d.s==59){
+    d.s=0;
+    if(d.m==59){
+      d.m=0;
+      if(d.h==23){
+        d.h=0;
+      }else{
+        d.h++;
+      }
+    }else{
+      d.m++;
+    }
+  }else{
+    d.s++;
+  }
 }
 
 function init(){
@@ -21,16 +39,32 @@ function init(){
   d.strength=localStorage.getItem("strength");
   d.feedInterval=localStorage.getItem("feedInterval");
 
-  d.h = localStorage.getItem("h");
-  d.m = localStorage.getItem("m");
-  d.s = localStorage.getItem("s");
   if(d.h==null || d.m==null || d.s==null){
-    d.h=0;
-    d.m=0;
-    d.s=0;
+    d.h = localStorage.getItem("h");
+    d.m = localStorage.getItem("m");
+    d.s = localStorage.getItem("s");
+      if(d.h==null || d.m==null || d.s==null){
+        d.h=0;
+        d.m=0;
+        d.s=0;
+        localStorage.setItem("h",d.h);
+        localStorage.setItem("m",d.m);
+        localStorage.setItem("s",d.s);
+      }
+  }else{
+    localStorage.setItem("h",d.h);
+    localStorage.setItem("m",d.m);
+    localStorage.setItem("s",d.s);
   }
 //  d.feed
 //local time vs real time
+}
+
+function reset(){
+  d.h=0;
+  d.m=0;
+  d.s=0;
+  init();
 }
 /*
 var overlayOn = false;

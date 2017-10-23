@@ -1,6 +1,7 @@
 var d={};
 var bgPort = chrome.runtime.connect({name: "P1"});
-setInterval(function(){getDate()}, 1000);
+//setInterval(function(){getDate()}, 1000);
+setInterval(function(){getTimer()}, 1000);
 
 var username = localStorage.getItem("username");
 
@@ -81,6 +82,11 @@ function cancel(){
 // init
 function init(){
   //load data, login, choose egg, resume
+
+  //time
+  d.h = localStorage.getItem("h");
+  d.m = localStorage.getItem("m");
+  d.s = localStorage.getItem("s");
 
   //data load
   d.chooseEgg = localStorage.getItem("chooseEgg");
@@ -240,6 +246,7 @@ function reset(){
 
   d.menu="";
   $(".menu div").removeClass("selected");
+  chrome.extension.getBackgroundPage().reset();
   init();
 }
 
