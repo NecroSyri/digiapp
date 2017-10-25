@@ -1,61 +1,76 @@
+// Global
+
 var d={};
 var bgPort = chrome.runtime.connect({name: "P1"});
 var bg = chrome.extension.getBackgroundPage();
-//setInterval(function(){getDate()}, 1000);
-setInterval(function(){getTimer()}, 1000);
-
 var username = localStorage.getItem("username");
 
-init();
+// Main
+$("body").ready(main());
 
-if(username == null){
-    //$("#welcomeMessage").hide();
-}else{
-    $(".js_username").html(username);
+
+function main(){
+  //setInterval(function(){getDate()}, 1000);
+  setInterval(function(){getTimer()}, 1000);
+
+  // Init
+  listeners();
+  init();
+
+  if(username == null){
+      //$("#welcomeMessage").hide();
+  }else{
+      $(".js_username").html(username);
+  }
 }
 
-$("#stats").click(function(){select();});
-$("#food").click(function(){confirm();});
-$("#train").click(function(){cancel();});
-$("#battle").click(function(){confirm();});
-$("#clean").click(function(){cancel();});
-$("#light").click(function(){select();});
-$("#heal").click(function(){confirm();});
-$("#album").click(function(){cancel();});
-$("#connection").click(function(){confirm();});
+function listeners(){
+// Events listeners
+  $("#stats").click(function(){select();});
+  $("#food").click(function(){confirm();});
+  $("#train").click(function(){cancel();});
+  $("#battle").click(function(){confirm();});
+  $("#clean").click(function(){cancel();});
+  $("#light").click(function(){select();});
+  $("#heal").click(function(){confirm();});
+  $("#album").click(function(){cancel();});
+  $("#connection").click(function(){confirm();});
 
-// Keypress
-$("body").keypress(function(key){
-  switch(key.which){
-    // Z - select
-    case 119:
-      select();
-    break;
-    // W - select
-    case 122:
-      select();
-    break;
-    // X - confirm
-    case 120:
-      confirm();
-    break;
-    // C - cancel
-    case 99:
-      cancel();
-    break;
-    // V - dev - reset
-    case 118:
-      reset();
-    break;
-    // < - dev - time
-    case 60:
-      bg.getTime();
-    break;
-    default :
-      $(".js_username").html(key.which);
-    break;
-  }
-});
+  // Keypress
+  $("html").keypress(function(key){
+    switch(key.which){
+      // Z - select
+      case 119:
+        select();
+      break;
+      // W - select
+      case 122:
+        select();
+      break;
+      // X - confirm
+      case 120:
+        confirm();
+      break;
+      // C - cancel
+      case 99:
+        cancel();
+      break;
+      // V - dev - reset
+      case 118:
+        reset();
+      break;
+      // < - dev - time
+      case 60:
+        bg.getTime();
+      break;
+      default :
+        $(".js_username").html(key.which);
+      break;
+    }
+  });
+}
+
+// Functions
 
 function select(){
   switch(d.option){
