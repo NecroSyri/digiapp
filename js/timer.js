@@ -32,3 +32,38 @@ function timePass(){
     d.s++;
   }
 }
+
+function vTime(){
+  var lt = localStorage.getItem("lastTime");
+  var lh = lt.getHours();
+  var lm = lt.getMinutes();
+  var ls = lt.getSeconds();
+
+  var t = new Date();
+  var h = t.getHours();
+  var m = t.getMinutes();
+  var s = t.getSeconds();
+
+  var vs=0;
+  var vm=0;
+  var vh=0;
+
+  // v = t - l
+  if(ls>s){
+    vs = 60+(s-ls);
+    lm++;
+  }else{
+    vs = s-ls;
+  }
+  if(lm>m){
+    vm = 60+(m-lm);
+  }else{
+    vm = m-lm;
+  }
+  if(lh>h){
+    vh = 24+(h-lh);
+    //y++; 
+  }else{
+    vh = h-lh;
+  }
+}
