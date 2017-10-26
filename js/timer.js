@@ -35,6 +35,8 @@ function timePass(){
 
 function vTime(){
   var lt = localStorage.getItem("lastTime");
+
+  lt = new Date(lt);
   var lh = lt.getHours();
   var lm = lt.getMinutes();
   var ls = lt.getSeconds();
@@ -57,12 +59,13 @@ function vTime(){
   }
   if(lm>m){
     vm = 60+(m-lm);
+    lh++;
   }else{
     vm = m-lm;
   }
   if(lh>h){
     vh = 24+(h-lh);
-    //y++; 
+    //y++;
   }else{
     vh = h-lh;
   }
