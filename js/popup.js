@@ -12,7 +12,7 @@ $("body").ready(main());
 function main(){
 
   //setInterval(function(){getDate()}, 1000);
-  setInterval(function(){getTimer()}, 1000);
+  setInterval(function(){vTime()}, 1000);
 
   // Init
   listeners();

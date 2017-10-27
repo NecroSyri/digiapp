@@ -34,7 +34,7 @@ function timePass(){
 }
 
 function vTime(){
-  var lt = localStorage.getItem("lastTime");
+  var lt = localStorage.getItem("startTime");
 
   lt = new Date(lt);
   var lh = lt.getHours();
@@ -69,4 +69,8 @@ function vTime(){
   }else{
     vh = h-lh;
   }
+  d.h=vh;
+  d.m=vm;
+  d.s=vs;
+  $("#date").html(("0"+d.h).slice(-2)+":"+("0"+d.m).slice(-2)+":"+("0"+d.s).slice(-2));
 }

@@ -39,23 +39,7 @@ function init(){
   d.strength=localStorage.getItem("strength");
   d.feedInterval=localStorage.getItem("feedInterval");
 
-  if(d.h==null || d.m==null || d.s==null){
-    d.h = localStorage.getItem("h");
-    d.m = localStorage.getItem("m");
-    d.s = localStorage.getItem("s");
-      if(d.h==null || d.m==null || d.s==null){
-        d.h=0;
-        d.m=0;
-        d.s=0;
-        localStorage.setItem("h",d.h);
-        localStorage.setItem("m",d.m);
-        localStorage.setItem("s",d.s);
-      }
-  }else{
-    localStorage.setItem("h",d.h);
-    localStorage.setItem("m",d.m);
-    localStorage.setItem("s",d.s);
-  }
+
 //  d.feed
 //local time vs real time
 }
@@ -69,6 +53,47 @@ function reset(){
 
 function getTime(){
   alert(d.h+":"+d.m+":"+d.s);
+}
+
+function vTime(){
+  var lt = localStorage.getItem("startTime");
+
+  lt = new Date(lt);
+  var lh = lt.getHours();
+  var lm = lt.getMinutes();
+  var ls = lt.getSeconds();
+
+  var t = new Date();
+  var h = t.getHours();
+  var m = t.getMinutes();
+  var s = t.getSeconds();
+
+  var vs=0;
+  var vm=0;
+  var vh=0;
+
+  // v = t - l
+  if(ls>s){
+    vs = 60+(s-ls);
+    lm++;
+  }else{
+    vs = s-ls;
+  }
+  if(lm>m){
+    vm = 60+(m-lm);
+    lh++;
+  }else{
+    vm = m-lm;
+  }
+  if(lh>h){
+    vh = 24+(h-lh);
+    //y++;
+  }else{
+    vh = h-lh;
+  }
+  d.h=vh;
+  d.m=vm;
+  d.s=vs;
 }
 /*
 var overlayOn = false;

@@ -66,5 +66,9 @@ function confirm_egg(){
   d.mon = d.egg;
   localStorage.setItem("mon",d.mon);
 
+  d.startTime=new Date();
+  localStorage.setItem("startTime",d.startTime);
+  bg.vTime();
+
   display();
 }
