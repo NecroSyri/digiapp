@@ -37,7 +37,38 @@ function select_menu(){
   $("#"+d.menu).addClass("selected");
 }
 function confirm_menu(){
-
+  switch(d.menu){
+    case "stats" :
+      selectStats();
+    break;
+    case "food" :
+      //food
+    break;
+    case "train" :
+      //train
+    break;
+    case "battle" :
+      //battle
+    break;
+    case "clean" :
+      //clean
+    break;
+    case "light" :
+      //light
+    break;
+    case "heal" :
+      //heal
+    break;
+    case "album" :
+      //album
+    break;
+    case "connection" :
+      //connection
+    break;
+    default:
+      //default
+    break;
+  }
 }
 function cancel_menu(){
   $(".menu div").removeClass("selected");
