@@ -1,0 +1,11 @@
+user :
+register
+login
+deco
+rename
+google
+no google
+
+storage :
+transfer to app or ext
+store from app or ext

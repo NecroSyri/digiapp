@@ -1,7 +1,0 @@
-init>
-chooseEgg - ok
-startTime - ok
-show
-stats
-run cd
-menu

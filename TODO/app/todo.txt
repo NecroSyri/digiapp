@@ -1,0 +1,14 @@
+init :
+load user
+choose egg
+init stats
+init timer
+
+egg :
+chart
+unlocked
+unlock conditions
+
+timer :
+v time = time passed since last time
+last time = time when app closed
