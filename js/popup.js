@@ -4,12 +4,23 @@ var d={};
 var bgPort = chrome.runtime.connect({name: "P1"});
 var bg = chrome.extension.getBackgroundPage();
 var username = localStorage.getItem("username");
+var size = localStorage.getItem("size");
 
 // Main
-$("body").ready(main());
-
+window.onload=function(){
+	main();
+}
 
 function main(){
+	if(size==null || size==0){
+		size = 1;
+	}
+	$("body").addClass("s"+size);
+	console.log(size);
+	console.log($("#digivice").attr("id")+"-");
+	
+	var test = $("#digivice").attr("id")
+	console.log("test"+test);
 
   //setInterval(function(){getDate()}, 1000);
   setInterval(function(){vTime()}, 1000);
@@ -27,7 +38,7 @@ function main(){
 
 function listeners(){
 // Events listeners
-  $("#stats").click(function(){select();});
+  $("#stats").click(function(){console.log("stats")});
   $("#food").click(function(){confirm();});
   $("#train").click(function(){cancel();});
   $("#battle").click(function(){confirm();});
@@ -36,7 +47,6 @@ function listeners(){
   $("#heal").click(function(){confirm();});
   $("#album").click(function(){cancel();});
   $("#connection").click(function(){confirm();});
-
   // Keypress
   $("html").keypress(function(key){
     switch(key.which){
