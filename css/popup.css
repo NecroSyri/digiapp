@@ -188,6 +188,10 @@ body.s4{
 .s4 .menu.bottom{
 	top : 96px;
 }
+.s4 #mon{
+  width : 64px
+  height : 64px;
+}
 /* menu icons */
 #stats{
 	background : url("../img/stats.png") no-repeat center;

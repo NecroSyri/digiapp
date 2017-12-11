@@ -30,6 +30,7 @@ function select_egg(){
   localStorage.setItem("egg",d.egg);
 }
 function show_egg(){
+  var red = "<div id=\"mon\"></div>"
   switch(d.egg){
     case "red":
       $(".inscreen").html("Red egg");
