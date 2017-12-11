@@ -2,6 +2,7 @@
 /* screen 32 x 16 px */
 /* 32 64 96 */
 /* 16 32 48 */
+/* 1pxmon = 4px menu */
 .js_username{
   top:0;
   right:5;
@@ -45,33 +46,38 @@
 }
 .inscreen{
   position:absolute;
-  background:rgba(0,0,0,0.1);
+  background:rgba(0,0,0,0.2);
 }
 .menu div{
   margin:auto;
   float:left;
-  /*border:1px solid black;*/
-/*   width:25px; */
-/*   height:25px; */
   text-align:center;
+  opacity : 0.4;
 }
 .menu .selected{
   background:rgba(255,255,255,0.2);
+  opacity : 1;
 }
 .button{
   position:absolute;
   background:rgba(255,255,255,0.1);
 }
+body{
+	background : #ccc;
+}
 /* x1 */
 body.s1{
+	font-size : 5px;
 	width : 37px;
 	height : 37px;
+	margin : 0 0 5px 5px;
 }
 .s1 #screen{
 	width : 32px;
 	height : 32px;
 	top : 5px;
 	left : 5px;
+	background-size : 32px 32px;
 }
 .s1 .menu{
 	width : 32px;
@@ -87,18 +93,21 @@ body.s1{
 	height : 8px;
 }
 .s1 .menu.bottom{
-	top : 32px;
+	top : 24px;
 }
 /* x2 */
 body.s2{
+	font-size : 10px;
 	width : 74px;
 	height : 74px;
+	margin : 0 0 10px 10px;
 }
 .s2 #screen{
 	width : 64px;
 	height : 64px;
 	top : 10px;
 	left : 10px;
+	background-size : 64px 64px;
 }
 .s2 .menu{
 	width : 64px;
@@ -114,18 +123,21 @@ body.s2{
 	height : 16px;
 }
 .s2 .menu.bottom{
-	top : 32px;
+	top : 48px;
 }
 /* x3 */
 body.s3{
+	font-size : 15px;
 	width : 111px;
 	height : 111px;
+	margin : 0 0 15px 15px;
 }
 .s3 #screen{
 	width : 96px;
 	height : 96px;
 	top : 15px;
 	left : 15px;
+	background-size : 96px 96px;
 }
 .s3 .menu{
 	width : 96px;
@@ -142,4 +154,65 @@ body.s3{
 }
 .s3 .menu.bottom{
 	top : 72px;
+}
+/* x4 */
+body.s4{
+	font-size : 20px;
+	width : 148px;
+	height : 148px;
+	margin : 0 0 20px 20px;
+}
+.s4 #screen{
+	width : 128px;
+	height : 128px;
+	top : 20px;
+	left : 20px;
+	background-size : 128px 128px;
+}
+.s4 .menu{
+	width : 128px;
+	height : 32px;
+}
+.s4 .inscreen{
+	width : 128px;
+	height : 64px;
+	top : 32px;
+}
+.s4 .menu div{
+	width : 32px;
+	height : 32px;
+}
+.s4 .menu.bottom{
+	top : 96px;
+}
+/* menu icons */
+#stats{
+	background : url("../img/stats.png") no-repeat center;
+}
+#food{
+	background : url("../img/food.png") no-repeat center;
+}
+#train{
+	background : url("../img/train.png") no-repeat center;
+}
+#battle{
+	background : url("../img/battle.png") no-repeat center;
+}
+#clean{
+	background : url("../img/clean.png") no-repeat center;
+}
+#light{
+	background : url("../img/light.png") no-repeat center;
+}
+#heal{
+	background : url("../img/heal.png") no-repeat center;
+}
+#album{
+	background : url("../img/album.png") no-repeat center;
+}
+#connection{
+	background : url("../img/connect.png") no-repeat center;
+}
+#call{
+	background : url("../img/call.png") no-repeat center;
 }

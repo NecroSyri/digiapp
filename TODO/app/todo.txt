@@ -12,3 +12,9 @@ unlock conditions
 timer :
 v time = time passed since last time
 last time = time when app closed
+
+stats :
+1 effort = 4 train
+food : meat / pills
+stats : name - weight / years - hunger - strenght - effort - stamina - evo bar - battle % - training
+

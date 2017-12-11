@@ -13,14 +13,9 @@ window.onload=function(){
 
 function main(){
 	if(size==null || size==0){
-		size = 1;
+		size = 4;
 	}
 	$("body").addClass("s"+size);
-	console.log(size);
-	console.log($("#digivice").attr("id")+"-");
-	
-	var test = $("#digivice").attr("id")
-	console.log("test"+test);
 
   //setInterval(function(){getDate()}, 1000);
   setInterval(function(){vTime()}, 1000);
