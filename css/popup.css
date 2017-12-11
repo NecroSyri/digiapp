@@ -3,6 +3,14 @@
 /* 32 64 96 */
 /* 16 32 48 */
 /* 1pxmon = 4px menu */
+#resize{
+	width:10px;
+	height:10px;
+	background:#333;
+	bottom:0px;
+	left:0px;
+	position:absolute;
+}
 .js_username{
   top:0;
   right:5;

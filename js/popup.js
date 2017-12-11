@@ -1,11 +1,16 @@
 // Global
 
+var mouse={};
+var resize=false;
 var d={};
 var bgPort = chrome.runtime.connect({name: "P1"});
 var bg = chrome.extension.getBackgroundPage();
 var username = localStorage.getItem("username");
 var size = localStorage.getItem("size");
 var opa = localStorage.getItem("opacity");
+var bodyWidth = localStorage.getItem("bodyWidth");
+var bodyHeight = localStorage.getItem("bodyHeight");
+
 
 // Main
 window.onload=function(){
@@ -13,6 +18,8 @@ window.onload=function(){
 }
 
 function main(){
+	$("body").width(bodyWidth);
+	$("body").height(bodyHeight);
 	if(size==null || size==0){
 		size = 4;
 	}
@@ -49,6 +56,13 @@ function listeners(){
   $("#heal").click(function(){confirm();});
   $("#album").click(function(){cancel();});
   $("#connection").click(function(){confirm();});
+  $("#resize").on("mousedown",function(){resizeOn();});
+  $(document).on("mouseup",function(){resizeOff();});
+  $(document).mousemove(function(event){
+	  mouse.x=event.pageX;
+	  mouse.y=event.pageY;
+	  mouseMove();
+  });
   // Keypress
   $("html").keypress(function(key){
     switch(key.which){
@@ -88,6 +102,22 @@ function listeners(){
 }
 
 // Functions
+function mouseMove(){
+	if(resize){
+			$("body").width($("body").width()-mouse.x);
+			$("body").height(mouse.y);
+	}
+}
+function resizeOn(){
+	resize=true;
+}
+function resizeOff(){
+	if(resize){
+		resize=false;
+		localStorage.setItem("bodyWidth",$("body").width());
+		localStorage.setItem("bodyHeight",$("body").height());
+	}
+}
 function opacity(){
 	if(opa=="true"){
 		localStorage.setItem("opacity","false");
