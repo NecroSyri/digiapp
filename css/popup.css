@@ -11,6 +11,9 @@
   text-decoration:none;
   color:black;
 }
+.opa{
+  opacity : 0.1;
+}
 #date{
   bottom : -10px;
   left : 5px;

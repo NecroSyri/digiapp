@@ -5,6 +5,7 @@ var bgPort = chrome.runtime.connect({name: "P1"});
 var bg = chrome.extension.getBackgroundPage();
 var username = localStorage.getItem("username");
 var size = localStorage.getItem("size");
+var opa = localStorage.getItem("opacity");
 
 // Main
 window.onload=function(){
@@ -16,6 +17,12 @@ function main(){
 		size = 4;
 	}
 	$("body").addClass("s"+size);
+
+	opacityFirst();
+	if(opa==null || opa==""){
+		opa = "false";
+		localStorage.setItem("opacity","false");
+	}
 
   //setInterval(function(){getDate()}, 1000);
   setInterval(function(){vTime()}, 1000);
@@ -69,6 +76,10 @@ function listeners(){
       case 60:
         bg.getTime();
       break;
+			// opacity
+			case 113:
+				opacity();
+			break;
       default :
         $(".js_username").html(key.which);
       break;
@@ -77,7 +88,24 @@ function listeners(){
 }
 
 // Functions
-
+function opacity(){
+	if(opa=="true"){
+		localStorage.setItem("opacity","false");
+		opa = "false";
+		$("body").removeClass("opa");
+	}else{
+		localStorage.setItem("opacity","true");
+		opa = "true";
+		$("body").addClass("opa");
+	}
+}
+function opacityFirst(){
+	if(opa=="false"){
+		$("body").removeClass("opa");
+	}else{
+		$("body").addClass("opa");
+	}
+}
 function select(){
   switch(d.option){
     case "egg":
