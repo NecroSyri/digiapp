@@ -20,6 +20,8 @@ window.onload=function(){
 function main(){
 	$("body").width(bodyWidth);
 	$("body").height(bodyHeight);
+	$("#screen").width($("body").width());
+	$("#screen").height($("body").height());
 	if(size==null || size==0){
 		size = 4;
 	}
@@ -108,8 +110,18 @@ function mouseMove(){
 			if(max<mouse.y){
 				max = mouse.y;
 			}
+			if(max>580){
+				max=580;
+			}
+			if(max<64){
+				max=64;
+			}
 			$("body").width(max);
 			$("body").height(max);
+			$("#screen").width($("body").width());
+			$("#screen").height($("body").height());
+			//$("html").width($("body").width());
+			//$("html").height($("body").height());
 	}
 }
 function resizeOn(){
