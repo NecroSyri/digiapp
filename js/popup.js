@@ -104,8 +104,12 @@ function listeners(){
 // Functions
 function mouseMove(){
 	if(resize){
-			$("body").width($("body").width()-mouse.x);
-			$("body").height(mouse.y);
+			var max = $("body").width()-mouse.x;
+			if(max<mouse.y){
+				max = mouse.y;
+			}
+			$("body").width(max);
+			$("body").height(max);
 	}
 }
 function resizeOn(){
