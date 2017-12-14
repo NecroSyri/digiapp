@@ -128,7 +128,11 @@ function listeners(){
 
 // Functions
 function loadIcon(icon){
-	$("#"+icon).css("background-image","url(\"../img/"+icon+localStorage.getItem(icon)+".png\")");
+	var img = 1;
+	if(localStorage.getItem(icon)!=null){
+		img = localStorage.getItem(icon);
+	}
+	$("#"+icon).css("background-image","url(\"../img/"+icon+img+".png\")");
 }
 function mouseMove(){
 	if(resize){
