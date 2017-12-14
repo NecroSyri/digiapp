@@ -4,7 +4,7 @@
 /* 16 32 48 */
 /* 1pxmon = 4px menu */
 /* max = 580x580 icon = 80x80 mon = 290x290*/
-/* reso = 576x576-36*16 80x80-5*16 288x288-18*16 */
+/* reso = 576x576-36*16 80x80-5*16 288x288-18*16 256? */
 #resize{
 	width:8px;
 	height:8px;
@@ -80,42 +80,60 @@ body{
 }
 /* menu icons */
 #stats{
-	background : url("../img/stats.png") no-repeat center;
+	background : url("../img/stats1.png") no-repeat center;
 	background-size : 100%;
 }
 #food{
-	background : url("../img/food.png") no-repeat center;
+	background : url("../img/food1.png") no-repeat center;
 	background-size : 100%;
 }
 #train{
-	background : url("../img/train.png") no-repeat center;
+	background : url("../img/train1.png") no-repeat center;
 	background-size : 100%;
 }
 #battle{
-	background : url("../img/battle.png") no-repeat center;
+	background : url("../img/battle1.png") no-repeat center;
 	background-size : 100%;
 }
 #clean{
-	background : url("../img/clean.png") no-repeat center;
+	background : url("../img/clean1.png") no-repeat center;
 	background-size : 100%;
 }
 #light{
-	background : url("../img/light.png") no-repeat center;
+	background : url("../img/light1.png") no-repeat center;
 	background-size : 100%;
 }
 #heal{
-	background : url("../img/heal.png") no-repeat center;
+	background : url("../img/heal1.png") no-repeat center;
 	background-size : 100%;
 }
 #album{
-	background : url("../img/album.png") no-repeat center;
+	background : url("../img/album1.png") no-repeat center;
 	background-size : 100%;
 }
 #connection{
-	background : url("../img/connect.png") no-repeat center;
+	background : url("../img/connect1.png") no-repeat center;
 	background-size : 100%;
 }
 #call{
-	background : url("../img/call.png") no-repeat center;
+	background : url("../img/call1.png") no-repeat center;
 	background-size : 100%;
+}
+
+/* display */
+#mon{
+	height:100%;
+	width:50%;
+	left:25%;
+	position:absolute;
+}
+.egg{
+	background:url("../img/v1eggsBW.png");
+	background-size:300%;
+	background-position : 0% 0;
+}
+.mon{
+	background:url("../img/v1spriteBW.png");
+	height:256px;
+	width:256px;
 }

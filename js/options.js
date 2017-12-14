@@ -5,19 +5,22 @@ $("#delete").click(function(){
     localStorage.removeItem("username");
 });
 
-// SIZE
-var size = localStorage.getItem("size");
-$("input[name=size]").each(function(){
-	if($(this).val()==size){
-		$(this).prop("checked",true);
-	}
-});
-$("input[name=size]").change(function(){
-	if ($(this).is(':checked'))
-	{
-		localStorage.setItem("size",$(this).val());
-	}
-});
+initRadio("battle");
+initRadio("clean");
+
+function initRadio(radio){
+  $("input[name="+radio+"]").each(function(){
+  	if($(this).val()==localStorage.getItem(radio)){
+  		$(this).prop("checked",true);
+  	}
+  });
+  $("input[name="+radio+"]").change(function(){
+  	if ($(this).is(':checked'))
+  	{
+  		localStorage.setItem(radio,$(this).val());
+  	}
+  });
+}
 
 var username = localStorage.getItem("username");
 
@@ -28,4 +31,3 @@ if(username == null){
     $("#registerForm").hide();
     $("#loginForm").show();
 }
-

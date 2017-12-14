@@ -1,3 +1,27 @@
+/*
+
+$(".scott").animateSprite({
+    fps: 12,
+    animations: {
+        walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
+        walkLeft: [15, 14, 13, 12, 11, 10, 9, 8]
+    },
+    loop: true,
+    complete: function(){
+        // use complete only when you set animations with 'loop: false'
+        alert("animation End");
+    }
+});
+
+$(".scott").animateSprite('play', 'walkLeft')
+$(".scott").animateSprite('play', 'walkRight')
+$(".scott").animateSprite('stop')
+$(".scott").animateSprite('resume')
+$(".scott").animateSprite('restart')
+$(".scott").animateSprite('frame', 3)
+$(".scott").animateSprite('fps', 3)
+
+*/
 // Global
 
 var mouse={};
@@ -11,7 +35,6 @@ var opa = localStorage.getItem("opacity");
 var bodyWidth = localStorage.getItem("bodyWidth");
 var bodyHeight = localStorage.getItem("bodyHeight");
 
-
 // Main
 window.onload=function(){
 	main();
@@ -22,10 +45,9 @@ function main(){
 	$("body").height(bodyHeight);
 	$("#screen").width($("body").width());
 	$("#screen").height($("body").height());
-	if(size==null || size==0){
-		size = 4;
-	}
-	$("body").addClass("s"+size);
+
+	loadIcon("battle");
+	loadIcon("clean");
 
 	opacityFirst();
 	if(opa==null || opa==""){
@@ -39,6 +61,7 @@ function main(){
   // Init
   listeners();
   init();
+	displayEgg();
 
   if(username == null){
       //$("#welcomeMessage").hide();
@@ -104,6 +127,9 @@ function listeners(){
 }
 
 // Functions
+function loadIcon(icon){
+	$("#"+icon).css("background-image","url(\"../img/"+icon+localStorage.getItem(icon)+".png\")");
+}
 function mouseMove(){
 	if(resize){
 			var max = $("body").width()-mouse.x;
