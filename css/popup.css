@@ -129,7 +129,7 @@ body{
 }
 .egg{
 	background:url("../img/v1eggsBW.png");
-	background-size:300%;
+	background-size:300% 0;
 	background-position : 0% 0;
 }
 .mon{
