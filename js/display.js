@@ -3,17 +3,28 @@ function display(){
   $(".inscreen").html(d.mon);
 }
 
-function displayEgg(){
+function displayEgg(eggNum,animName){
     $(".inscreen").html("<div id=\"mon\"></div>");
   $("#mon").addClass('egg');
   var myAnimation = new AM.Sprite(document.getElementById('mon'),{
     fps:5,
-    totalFames:12,
+    totalFames:18,
     columns:3,
-    rows:4
+    rows:6
   });
-  myAnimation.loopBetween(1,2,true);
 
+  switch(animName){
+	  case "fix":
+		  myAnimation.loopBetween(eggNum,eggNum,true);
+		  myAnimation.pause();
+	  break;
+	  case "shake":
+		  myAnimation.loopBetween(1,1,true);
+	  break;
+	  case "hatch":
+		  myAnimation.loopBetween(1,1,true);
+	  break;
+  }
 //https://www.cssscript.com/easy-sprite-animation-javascript-library-sprite-js/
 /*
 var myAnimation = new AM.Sprite(document.getElementById('demo'), {
@@ -21,31 +32,5 @@ var myAnimation = new AM.Sprite(document.getElementById('demo'), {
     columns: 5,
     rows: 3
 });
-
-myAnimation.element.onclick = function () {
-  if (myAnimation.running) {
-    myAnimation.pause();
-  } else {
-    myAnimation.loopBetween(myAnimation.currentFrame, 0, true);
-  }
-};
-
-myAnimation.loopBetween(1, 7, true);
-*/
-/*
-  $(".egg").animateSprite({
-      fps: 0,
-      animations: {
-          stop: [0],
-          shake: [0, 1],
-          pop:[0,1,2]
-      },
-      loop: true,
-      complete: function(){
-          // use complete only when you set animations with 'loop: false'
-          alert("animation End");
-      }
-  });
-  $(".egg").animateSprite("play","shake");
 */
 }
