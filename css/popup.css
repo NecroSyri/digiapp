@@ -80,43 +80,43 @@ body{
 }
 /* menu icons */
 #stats{
-	background : url("../img/stats.png") no-repeat center;
+	background : url("../img/stats1.png") no-repeat center;
 	background-size : 100%;
 }
 #food{
-	background : url("../img/food.png") no-repeat center;
+	background : url("../img/food1.png") no-repeat center;
 	background-size : 100%;
 }
 #train{
-	background : url("../img/train.png") no-repeat center;
+	background : url("../img/train1.png") no-repeat center;
 	background-size : 100%;
 }
 #battle{
-	background : url("../img/battle.png") no-repeat center;
+	background : url("../img/battle1.png") no-repeat center;
 	background-size : 100%;
 }
 #clean{
-	background : url("../img/clean.png") no-repeat center;
+	background : url("../img/clean1.png") no-repeat center;
 	background-size : 100%;
 }
 #light{
-	background : url("../img/light.png") no-repeat center;
+	background : url("../img/light1.png") no-repeat center;
 	background-size : 100%;
 }
 #heal{
-	background : url("../img/heal.png") no-repeat center;
+	background : url("../img/heal1.png") no-repeat center;
 	background-size : 100%;
 }
 #album{
-	background : url("../img/album.png") no-repeat center;
+	background : url("../img/album1.png") no-repeat center;
 	background-size : 100%;
 }
 #connection{
-	background : url("../img/connect.png") no-repeat center;
+	background : url("../img/connect1.png") no-repeat center;
 	background-size : 100%;
 }
 #call{
-	background : url("../img/call.png") no-repeat center;
+	background : url("../img/call1.png") no-repeat center;
 	background-size : 100%;
 }
 

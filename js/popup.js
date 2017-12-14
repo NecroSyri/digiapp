@@ -128,7 +128,7 @@ function listeners(){
 
 // Functions
 function loadIcon(icon){
-	$("#"+icon).css("background","url(\"../img/"+icon+localStorage.getItem(icon)+".png\")");
+	$("#"+icon).css("background-image","url(\"../img/"+icon+localStorage.getItem(icon)+".png\")");
 }
 function mouseMove(){
 	if(resize){
