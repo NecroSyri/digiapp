@@ -35,7 +35,6 @@ var opa = localStorage.getItem("opacity");
 var bodyWidth = localStorage.getItem("bodyWidth");
 var bodyHeight = localStorage.getItem("bodyHeight");
 
-
 // Main
 window.onload=function(){
 	main();
@@ -46,10 +45,9 @@ function main(){
 	$("body").height(bodyHeight);
 	$("#screen").width($("body").width());
 	$("#screen").height($("body").height());
-	if(size==null || size==0){
-		size = 4;
-	}
-	$("body").addClass("s"+size);
+
+	loadIcon("battle");
+	loadIcon("clean");
 
 	opacityFirst();
 	if(opa==null || opa==""){
@@ -129,6 +127,9 @@ function listeners(){
 }
 
 // Functions
+function loadIcon(icon){
+	$("#"+icon).css("background","url(\"../img/"+icon+localStorage.getItem(icon)+".png\")");
+}
 function mouseMove(){
 	if(resize){
 			var max = $("body").width()-mouse.x;
