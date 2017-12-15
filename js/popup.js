@@ -61,7 +61,7 @@ function main(){
   // Init
   listeners();
   init();
-	displayEgg();
+	displayEgg(1,"fix");
 
   if(username == null){
       //$("#welcomeMessage").hide();

@@ -15,14 +15,14 @@ function displayEgg(eggNum,animName){
 
   switch(animName){
 	  case "fix":
-		  myAnimation.loopBetween(eggNum,eggNum,true);
+		  myAnimation.loopBetween(eggNum*3-2,eggNum*3-2,true);
 		  myAnimation.pause();
 	  break;
 	  case "shake":
-		  myAnimation.loopBetween(1,1,true);
+		  myAnimation.loopBetween(eggNum*3-2,eggNum*3-1,true);
 	  break;
 	  case "hatch":
-		  myAnimation.loopBetween(1,1,true);
+		  myAnimation.loopBetween(eggNum*3-2,eggNum*3,true);
 	  break;
   }
 //https://www.cssscript.com/easy-sprite-animation-javascript-library-sprite-js/
