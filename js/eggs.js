@@ -6,7 +6,7 @@ function chooseEgg(){
     d.egg = "red"
     localStorage.setItem("egg",d.egg);
   }
-  show_egg()
+  show_egg();
 }
 function select_egg(){
   switch(d.egg){

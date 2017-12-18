@@ -1,27 +1,3 @@
-/*
-
-$(".scott").animateSprite({
-    fps: 12,
-    animations: {
-        walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
-        walkLeft: [15, 14, 13, 12, 11, 10, 9, 8]
-    },
-    loop: true,
-    complete: function(){
-        // use complete only when you set animations with 'loop: false'
-        alert("animation End");
-    }
-});
-
-$(".scott").animateSprite('play', 'walkLeft')
-$(".scott").animateSprite('play', 'walkRight')
-$(".scott").animateSprite('stop')
-$(".scott").animateSprite('resume')
-$(".scott").animateSprite('restart')
-$(".scott").animateSprite('frame', 3)
-$(".scott").animateSprite('fps', 3)
-
-*/
 // Global
 
 var mouse={};
