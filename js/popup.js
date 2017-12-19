@@ -37,7 +37,7 @@ function main(){
   // Init
   listeners();
   init();
-	//display("v1","fix");
+  display(d.mon);
 
   if(username == null){
       //$("#welcomeMessage").hide();

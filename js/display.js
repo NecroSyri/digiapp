@@ -2,7 +2,7 @@
 //display
 
 function display(mon,anim){
-	$(".inscreen").html("<div id=\"mon\"></div>");
+	$(".inscreen.mon").html("<div id=\"mon\"></div>");
   
 	if(mon=="v1"||mon=="v2"||mon=="v3"||mon=="v4"||mon=="v5"){
 		var eggNum = mon.replace("v","");
@@ -27,4 +27,8 @@ function display(mon,anim){
 		  break;
 	  }
 	}
+}
+
+function toggleChooseArrows(){
+	if($(".inscreen.overlay").)
 }
