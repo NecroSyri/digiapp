@@ -20,7 +20,7 @@ function selectEgg(){
   }else{
 	  d.egg=0;
   }
-  showEgg(eggs(d.egg));
+  showEgg(eggs[d.egg]);
   localStorage.setItem("egg",d.egg);
 }
 function showEgg(egg){
