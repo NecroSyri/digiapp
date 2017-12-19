@@ -3,51 +3,29 @@ function chooseEgg(){
   d.option = "egg";
   localStorage.setItem("option",d.option);
   if(d.egg == null){
-    d.egg = "red"
+    d.egg = "0";
     localStorage.setItem("egg",d.egg);
   }
   show_egg();
 }
 function select_egg(){
-  switch(d.egg){
-    case "red":
-      d.egg="blue";
-    break;
-    case "blue":
-      d.egg="green";
-    break;
-    case "green":
-      d.egg="yellow";
-    break;
-    case "yellow":
-      d.egg="lightblue";
-    break;
-    case "lightblue":
-      d.egg="red";
-    break;
+	var eggs = localStorage.getItem("unlockedEggs");
+	if(eggs == null || eggs == ""){
+		localStorage.setItem("unlockEggs","v1,v2,v3,v4,v5");
+		eggs = "v1,v2,v3,v4,v5";
+	}
+	var eggsTab = var eggsTab = eggs.split(",");
+  if(d.egg<eggsTab){
+	  d.egg++;
+  }else{
+	  d.egg=0;
   }
-  show_egg();
+  show_egg(showEgg(eggs(d.egg)));
   localStorage.setItem("egg",d.egg);
 }
-function show_egg(){
+function show_egg(egg){
   var red = "<div id=\"mon\"></div>"
-  switch(d.egg){
-    case "red":
-      $(".inscreen").html("Red egg");
-    break;
-    case "blue":
-      $(".inscreen").html("Blue egg");
-    break;
-    case "green":
-      $(".inscreen").html("Green egg");
-    break;
-    case "yellow":
-      $(".inscreen").html("Yellow egg");
-    break;
-    case "lightblue":
-      $(".inscreen").html("Light Blue egg");
-    break;
-  }
+  display(egg,"fix");
 }
 function confirm_egg(){
   //store chosen egg, set option to menu
