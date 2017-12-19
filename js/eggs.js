@@ -14,7 +14,7 @@ function select_egg(){
 		localStorage.setItem("unlockEggs","v1,v2,v3,v4,v5");
 		eggs = "v1,v2,v3,v4,v5";
 	}
-	var eggsTab = var eggsTab = eggs.split(",");
+	var eggsTab = eggs.split(",");
   if(d.egg<eggsTab){
 	  d.egg++;
   }else{
