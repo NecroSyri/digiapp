@@ -8,7 +8,7 @@ function chooseEgg(){
   }
   show_egg();
 }
-function select_egg(){
+function selectEgg(){
 	var eggs = localStorage.getItem("unlockedEggs");
 	if(eggs == null || eggs == ""){
 		localStorage.setItem("unlockEggs","v1,v2,v3,v4,v5");
@@ -23,7 +23,7 @@ function select_egg(){
   show_egg(showEgg(eggs(d.egg)));
   localStorage.setItem("egg",d.egg);
 }
-function show_egg(egg){
+function showEgg(egg){
   var red = "<div id=\"mon\"></div>"
   display(egg,"fix");
 }
