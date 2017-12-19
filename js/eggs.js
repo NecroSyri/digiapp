@@ -6,7 +6,7 @@ function chooseEgg(){
     d.egg = "0";
     localStorage.setItem("egg",d.egg);
   }
-  show_egg();
+  showEgg();
 }
 function selectEgg(){
 	var eggs = localStorage.getItem("unlockedEggs");
@@ -20,14 +20,14 @@ function selectEgg(){
   }else{
 	  d.egg=0;
   }
-  show_egg(showEgg(eggs(d.egg)));
+  showEgg(eggs(d.egg));
   localStorage.setItem("egg",d.egg);
 }
 function showEgg(egg){
   var red = "<div id=\"mon\"></div>"
   display(egg,"fix");
 }
-function confirm_egg(){
+function confirmEgg(){
   //store chosen egg, set option to menu
   d.chooseEgg = d.egg;
   localStorage.setItem("chooseEgg",d.chooseEgg);

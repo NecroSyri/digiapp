@@ -37,7 +37,7 @@ function main(){
   // Init
   listeners();
   init();
-	displayEgg(1,"fix");
+	//display("v1","fix");
 
   if(username == null){
       //$("#welcomeMessage").hide();
@@ -161,27 +161,27 @@ function opacityFirst(){
 function select(){
   switch(d.option){
     case "egg":
-      select_egg();
+      selectEgg();
     break;
     case "menu":
-      select_menu();
+      selectMenu();
     break;
   }
 }
 function confirm(){
   switch(d.option){
     case "egg":
-      confirm_egg();
+      confirmEgg();
     break;
     case "menu":
-      confirm_menu();
+      confirmMenu();
     break;
   }
 }
 function cancel(){
   switch(d.option){
     case "menu":
-      cancel_menu();
+      cancelMenu();
     break;
   }
 }

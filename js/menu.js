@@ -1,6 +1,6 @@
 
 //Menu
-function select_menu(){
+function selectMenu(){
   switch(d.menu){
     case "stats" :
       d.menu="food";
@@ -36,7 +36,7 @@ function select_menu(){
   $(".menu div").removeClass("selected");
   $("#"+d.menu).addClass("selected");
 }
-function confirm_menu(){
+function confirmMenu(){
   switch(d.menu){
     case "stats" :
       selectStats();
@@ -70,7 +70,7 @@ function confirm_menu(){
     break;
   }
 }
-function cancel_menu(){
+function cancelMenu(){
   $(".menu div").removeClass("selected");
   d.menu="";
 }
