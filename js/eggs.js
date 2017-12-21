@@ -41,7 +41,7 @@ function confirmEgg(){
   d.energy=10;
 
   d.evotime=60;
-  d.mon = d.egg;
+  d.mon = "v"+d.egg;
   localStorage.setItem("mon",d.mon);
 
   d.startTime=new Date();

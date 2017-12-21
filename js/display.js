@@ -3,7 +3,7 @@
 
 function display(mon,anim){
 	$(".inscreen.mon").html("<div id=\"mon\"></div>");
-  
+
 	if(mon=="v1"||mon=="v2"||mon=="v3"||mon=="v4"||mon=="v5"){
 		var eggNum = mon.replace("v","");
 		$("#mon").addClass('egg');
@@ -13,7 +13,7 @@ function display(mon,anim){
 	    columns:3,
 	    rows:6
 	  });
-	
+
 	  switch(anim){
 		  case "fix":
 			  myAnimation.loopBetween(eggNum*3-2,eggNum*3-2,true);
@@ -30,5 +30,5 @@ function display(mon,anim){
 }
 
 function toggleChooseArrows(){
-	if($(".inscreen.overlay").)
+	//if($(".inscreen.overlay").)
 }

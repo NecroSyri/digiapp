@@ -206,7 +206,7 @@ function init(){
   }else{
       //resume
       d.mon = localStorage.getItem("mon");
-      display();
+      display(d.mon);
 
       d.lastTime = localStorage.getItem("lastTime");
       d.time = new Date();
