@@ -132,3 +132,21 @@ body{
 	background-size:300%;
 	background-position : 0% 0;
 }
+#leftArrow{
+	background:url("../img/left.png");
+	background-size: 100%;
+	left: 0%;
+	height: 50%;
+	bottom: 0%;
+	position: absolute;
+	width: 25%;
+}
+#rightArrow{
+	background:url("../img/right.png");
+	background-size: 100%;
+	right: 0%;
+	height: 50%;
+	bottom: 0%;
+	position: absolute;
+	width: 25%;
+}

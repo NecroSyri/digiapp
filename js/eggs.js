@@ -1,5 +1,6 @@
 // Eggs
 function chooseEgg(){
+  toggleChooseArrows(false);
   d.option = "egg";
   localStorage.setItem("option",d.option);
   if(d.egg == null){
@@ -28,6 +29,7 @@ function showEgg(egg){
 }
 function confirmEgg(){
   //store chosen egg, set option to menu
+  toggleChooseArrows();
   d.chooseEgg = d.egg;
   localStorage.setItem("chooseEgg",d.chooseEgg);
   d.option="menu";
