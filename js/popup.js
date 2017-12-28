@@ -91,9 +91,16 @@ function listeners(){
       case 60:
         bg.getTime();
       break;
-			// opacity
+			// Q/A- opacity
 			case 113:
 				opacity();
+			break;
+			case 97:
+				opacity();
+			break;
+			// s - show datas
+			case 115 :
+				showDatas();
 			break;
       default :
         $(".js_username").html(key.which);
@@ -103,6 +110,9 @@ function listeners(){
 }
 
 // Functions
+function showDatas(){
+	$("#statsZone").toggle();
+}
 function loadIcon(icon){
 	var img = 1;
 	if(localStorage.getItem(icon)!=null){
