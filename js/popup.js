@@ -5,11 +5,11 @@ var resize=false;
 var d={};
 var bgPort = chrome.runtime.connect({name: "P1"});
 var bg = chrome.extension.getBackgroundPage();
-var username = localStorage.getItem("username");
 var size = localStorage.getItem("size");
 var opa = localStorage.getItem("opacity");
 var bodyWidth = localStorage.getItem("bodyWidth");
 var bodyHeight = localStorage.getItem("bodyHeight");
+var statsZoneHeight = 50;
 
 // Main
 window.onload=function(){
@@ -38,12 +38,6 @@ function main(){
   listeners();
   init();
   display(d.mon);
-
-  if(username == null){
-      //$("#welcomeMessage").hide();
-  }else{
-      $(".js_username").html(username);
-  }
 }
 
 function listeners(){
@@ -112,6 +106,11 @@ function listeners(){
 // Functions
 function showDatas(){
 	$("#statsZone").toggle();
+	if($("#statsZone").is(":visible")){
+		$("body").height($("body").height()+statsZoneHeight);
+	}else{
+		$("body").height($("body").height()-statsZoneHeight);
+	}
 }
 function loadIcon(icon){
 	var img = 1;
@@ -136,6 +135,9 @@ function mouseMove(){
 			$("body").height(max);
 			$("#screen").width($("body").width());
 			$("#screen").height($("body").height());
+			if($("#statsZone").is(":visible")){
+				$("body").height(max+statsZoneHeight);
+			}
 			//$("html").width($("body").width());
 			//$("html").height($("body").height());
 	}
@@ -147,7 +149,11 @@ function resizeOff(){
 	if(resize){
 		resize=false;
 		localStorage.setItem("bodyWidth",$("body").width());
-		localStorage.setItem("bodyHeight",$("body").height());
+		if($("#statsZone").is(":visible")){
+			localStorage.setItem("bodyHeight",$("body").height()-statsZoneHeight);
+		}else{
+			localStorage.setItem("bodyHeight",$("body").height());
+		}
 	}
 }
 function opacity(){

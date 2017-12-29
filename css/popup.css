@@ -24,6 +24,9 @@
 .opa{
   opacity : 0.1;
 }
+.opa .inscreen{
+	opacity : 0.6;
+}
 #date{
   bottom : -10px;
   left : 5px;
