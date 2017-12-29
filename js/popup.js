@@ -22,6 +22,8 @@ function main(){
 	$("#screen").width($("body").width());
 	$("#screen").height($("body").height());
 
+	$("#statsZone").height(statsZoneHeight);
+
 	loadIcon("battle");
 	loadIcon("clean");
 
