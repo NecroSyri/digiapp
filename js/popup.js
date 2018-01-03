@@ -9,6 +9,7 @@ var size = localStorage.getItem("size");
 var opa = localStorage.getItem("opacity");
 var bodyWidth = localStorage.getItem("bodyWidth");
 var bodyHeight = localStorage.getItem("bodyHeight");
+var showNotifications = localStorage.getItem("notifications");
 var statsZoneHeight = 50;
 
 // Main

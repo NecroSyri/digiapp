@@ -23,3 +23,14 @@ chrome.notifications.create(opt, function(createdId) {
 		}
 	}});
 }
+
+function call(isCalling){
+  if(isCalling){
+    chrome.browserAction.setIcon({path: "../img/call1.png"});//set white
+    if(showNotifications){
+      notification("Call","You've been called !","../img/call1.png");
+    }
+  }else{
+    chrome.browserAction.setIcon({path: "../img/ico/16-w.png"});
+  }
+}
