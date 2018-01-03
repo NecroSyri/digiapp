@@ -6,3 +6,20 @@ function countSeconds(t1,t2){
     var Seconds_Between_Dates = Math.floor(Math.abs(Seconds_from_T1_to_T2));
     return Seconds_Between_Dates;
 }
+
+function notification(title,message,icon){
+  var opt = {
+    type: "basic",
+    title: title,
+    message: message,
+    iconUrl: icon
+  }
+chrome.notifications.create(opt, function(createdId) {
+	var handler = function(id) {
+		if(id == createdId) {
+			navigate(url);
+			chrome.notifications.clear(id);
+			chrome.notifications.onClicked.removeListener(handler);
+		}
+	}});
+}
