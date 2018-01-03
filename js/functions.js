@@ -34,3 +34,7 @@ function call(isCalling){
     chrome.browserAction.setIcon({path: "../img/ico/16-w.png"});
   }
 }
+
+function random(min,max){
+  return min + Math.floor(Math.random() * max);
+}

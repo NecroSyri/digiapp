@@ -35,7 +35,7 @@ function main(){
 	}
 
   //setInterval(function(){getDate()}, 1000);
-  setInterval(function(){vTime()}, 1000);
+  setInterval(function(){tick()}, 1000);
 
   // Init
   listeners();
@@ -209,11 +209,6 @@ function cancel(){
 function init(){
   //load data, login, choose egg, resume
 
-  //time
-  d.h = localStorage.getItem("h");
-  d.m = localStorage.getItem("m");
-  d.s = localStorage.getItem("s");
-
   //data load
   d.chooseEgg = localStorage.getItem("chooseEgg");
   d.option = localStorage.getItem("option");
@@ -226,16 +221,6 @@ function init(){
       //resume
       d.mon = localStorage.getItem("mon");
       display(d.mon);
-
-      d.lastTime = localStorage.getItem("lastTime");
-      d.time = new Date();
-      if(d.lastTime==null){
-
-      }else{
-          console.log(d.time);
-          console.log(d.lastTime);
-          $("#testMessage").html(countSeconds(d.time,d.lastTime));
-      }
   }
 }
 
@@ -244,10 +229,6 @@ function reset(){
   localStorage.removeItem("egg");
   localStorage.removeItem("option");
   localStorage.removeItem("chooseEgg");
-
-  localStorage.removeItem("h");
-  localStorage.removeItem("m");
-  localStorage.removeItem("s");
 
   d.menu="";
   $(".menu div").removeClass("selected");
