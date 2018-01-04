@@ -43,12 +43,8 @@ function confirmEgg(){
   d.energy=10;
 
   d.evotime=60;
-  d.mon = "v"+d.egg;
+  d.mon = "v"+(d.egg+1);
   localStorage.setItem("mon",d.mon);
-
-  d.startTime=new Date();
-  localStorage.setItem("startTime",d.startTime);
-  bg.vTime();
 
   showEgg("v"+(d.egg+1));
 }

@@ -18,6 +18,8 @@ window.onload=function(){
 }
 
 function main(){
+	console.log(localStorage.getItem("lastTime"));
+
 	$("body").width(bodyWidth);
 	$("body").height(bodyHeight);
 	$("#screen").width($("body").width());
@@ -40,7 +42,6 @@ function main(){
   // Init
   listeners();
   init();
-  display(d.mon);
 }
 
 function listeners(){
@@ -220,7 +221,7 @@ function init(){
   }else{
       //resume
       d.mon = localStorage.getItem("mon");
-      display(d.mon);
+      display(d.mon,"fix");
   }
 }
 
@@ -229,6 +230,7 @@ function reset(){
   localStorage.removeItem("egg");
   localStorage.removeItem("option");
   localStorage.removeItem("chooseEgg");
+	localStorage.removeItem("lastTime");
 
   d.menu="";
   $(".menu div").removeClass("selected");

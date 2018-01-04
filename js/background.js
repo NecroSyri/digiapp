@@ -6,6 +6,8 @@ chrome.runtime.onConnect.addListener(function(port) {
     popupPort = port;
     popupPort.onDisconnect.addListener(function() {
         //close
+        var lastTime=new Date();
+        localStorage.setItem("lastTime",lastTime);
     });
   }
 });
