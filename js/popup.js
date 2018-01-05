@@ -1,5 +1,8 @@
 // Global
 
+//tab in storage = JSON.stringify(tab) / JSON.parse(tab)
+//tab.push([time,event])
+//tab.splice(index,1)
 var mouse={};
 var resize=false;
 var d={};
@@ -62,6 +65,9 @@ function listeners(){
 	  mouse.y=event.pageY;
 	  mouseMove();
   });
+	chrome.extension.onMessage.addListener(function(message, messageSender, sendResponse) {
+			eventsFromBackground(message);
+	});
   // Keypress
   $("html").keypress(function(key){
     switch(key.which){
@@ -231,6 +237,7 @@ function reset(){
   localStorage.removeItem("option");
   localStorage.removeItem("chooseEgg");
 	localStorage.removeItem("lastTime");
+	localStorage.removeItem("timers");
 
   d.menu="";
   $(".menu div").removeClass("selected");

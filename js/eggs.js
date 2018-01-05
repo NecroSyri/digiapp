@@ -32,7 +32,7 @@ function confirmEgg(){
   toggleChooseArrows();
   d.chooseEgg = d.egg;
   localStorage.setItem("chooseEgg",d.chooseEgg);
-  d.option="menu";
+  d.option="hatching";
   localStorage.setItem("option",d.option);
   d.menu="";
   localStorage.removeItem("egg");
@@ -40,11 +40,12 @@ function confirmEgg(){
   d.hunger=0;
   d.strength=0;
   d.effort=0;
-  d.energy=10;
+  d.energy=0;
 
-  d.evotime=60;
   d.mon = "v"+(d.egg+1);
   localStorage.setItem("mon",d.mon);
 
   showEgg("v"+(d.egg+1));
+  setTimer(30,"eggShake");
+  setTimer(60,"hatch");
 }

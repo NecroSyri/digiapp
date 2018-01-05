@@ -38,3 +38,26 @@ function call(isCalling){
 function random(min,max){
   return min + Math.floor(Math.random() * max);
 }
+
+function setTimer(time,name){
+  var timers = localStorage.getItem("timers");
+  if(timers==null||timers=="null"||timers=="undefined"){
+    timers=[];
+  }else{
+    timers = JSON.parse(timers);
+  }
+  timers.push([time,name]);
+  localStorage.setItem("timers",JSON.stringify(timers));
+  chrome.runtime.sendMessage("timer");
+}
+
+function eventsFromBackground(message){
+  switch(message){
+    case "eggShake":
+      display(d.mon,"shake");
+    break;
+    default:
+      alert(message);
+    break;
+  }
+}
