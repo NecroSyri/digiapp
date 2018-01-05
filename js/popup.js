@@ -227,7 +227,8 @@ function init(){
   }else{
       //resume
       d.mon = localStorage.getItem("mon");
-      display(d.mon,"fix");
+			d.state = localStorage.getItem("state");
+      display(d.mon,d.state);
   }
 }
 

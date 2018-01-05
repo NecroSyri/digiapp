@@ -50,6 +50,8 @@ function timedEvent(event){
     case "hatch":
     break;
     case "eggShake":
+      d.state="shake";
+      localStorage.setItem("state",d.state);
       chrome.extension.sendMessage("eggShake");
     break;
   }

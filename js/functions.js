@@ -54,6 +54,7 @@ function setTimer(time,name){
 function eventsFromBackground(message){
   switch(message){
     case "eggShake":
+      d.state="shake";
       display(d.mon,"shake");
     break;
     default:

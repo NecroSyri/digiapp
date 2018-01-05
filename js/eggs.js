@@ -43,7 +43,9 @@ function confirmEgg(){
   d.energy=0;
 
   d.mon = "v"+(d.egg+1);
+  d.state="fix";
   localStorage.setItem("mon",d.mon);
+  localStorage.setItem("state",d.state);
 
   showEgg("v"+(d.egg+1));
   setTimer(30,"eggShake");

@@ -25,6 +25,10 @@ function display(mon,anim){
 		  case "hatch":
 			  myAnimation.loopBetween(eggNum*3-2,eggNum*3,true);
 		  break;
+			default:
+				myAnimation.loopBetween(eggNum*3-2,eggNum*3-2,true);
+				myAnimation.pause();
+			break;
 	  }
 	}
 }
