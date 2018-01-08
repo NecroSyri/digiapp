@@ -37,7 +37,7 @@ function confirmEgg(){
   toggleChooseArrows();
   p.chooseEgg = p.egg;
   //localStorage.setItem("chooseEgg",d.chooseEgg);
-  p.option="hatching";
+  p.option="menu";
   //localStorage.setItem("option",d.option);
   p.menu="";
   //localStorage.removeItem("egg");

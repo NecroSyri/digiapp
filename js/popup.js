@@ -26,8 +26,12 @@ window.onload=function(){
 
 function main(){
 	load();
-	console.log(p.lastTime);
+	console.log(bg.getLastTime());
 
+	if(p.bodyWidth==null || p.bodyHeight==null ||p.bodyWidth==undefined || p.bodyHeight==undefined ||p.bodyWidth=="undefined" || p.bodyHeight=="undefined"){
+		p.bodyWidth=64;
+		p.bodyHeight=64;
+	}
 	$("body").width(p.bodyWidth);
 	$("body").height(p.bodyHeight);
 	$("#screen").width($("body").width());
@@ -250,7 +254,6 @@ function init(){
 
 //Reset
 function reset(){
-	console.log("reset");
 	/*
   localStorage.removeItem("egg");
   localStorage.removeItem("option");
