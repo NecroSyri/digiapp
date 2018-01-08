@@ -1,28 +1,33 @@
 // Eggs
 function chooseEgg(){
   toggleChooseArrows(false);
-  d.option = "egg";
-  localStorage.setItem("option",d.option);
-  if(d.egg == null){
-    d.egg = "0";
-    localStorage.setItem("egg",d.egg);
+  p.option = "egg";
+  //localStorage.setItem("option",d.option);
+  if(p.egg == null){
+    p.egg = "0";
+    //localStorage.setItem("egg",d.egg);
   }
+  save();
   showEgg("v1");
 }
 function selectEgg(){
-	var eggs = localStorage.getItem("unlockedEggs");
-	if(eggs == null || eggs == ""){
-		localStorage.setItem("unlockEggs","v1,v2,v3,v4,v5");
-		eggs = "v1,v2,v3,v4,v5";
+  load();
+	//var eggs = localStorage.getItem("unlockedEggs");
+	if(p.eggs == null || p.eggs == ""){
+    p.eggs="v1,v2,v3,v4,v5";
+		//localStorage.setItem("unlockEggs","v1,v2,v3,v4,v5");
+		//eggs = "v1,v2,v3,v4,v5";
+    save();
 	}
-	var eggsTab = eggs.split(",");
-  if(d.egg<eggsTab.length-1){
-	  d.egg++;
+	var eggsTab = p.eggs.split(",");
+  if(p.egg<eggsTab.length-1){
+	  p.egg++;
   }else{
-	  d.egg=0;
+	  p.egg=0;
   }
-  showEgg(eggsTab[d.egg]);
-  localStorage.setItem("egg",d.egg);
+  showEgg(eggsTab[p.egg]);
+  save();
+  //localStorage.setItem("egg",d.egg);
 }
 function showEgg(egg){
   display(egg,"fix");
@@ -30,24 +35,25 @@ function showEgg(egg){
 function confirmEgg(){
   //store chosen egg, set option to menu
   toggleChooseArrows();
-  d.chooseEgg = d.egg;
-  localStorage.setItem("chooseEgg",d.chooseEgg);
-  d.option="hatching";
-  localStorage.setItem("option",d.option);
-  d.menu="";
-  localStorage.removeItem("egg");
+  p.chooseEgg = p.egg;
+  //localStorage.setItem("chooseEgg",d.chooseEgg);
+  p.option="hatching";
+  //localStorage.setItem("option",d.option);
+  p.menu="";
+  //localStorage.removeItem("egg");
+  //p.egg=null;
 
-  d.hunger=0;
-  d.strength=0;
-  d.effort=0;
-  d.energy=0;
+  p.hunger=0;
+  p.strength=0;
+  p.effort=0;
+  p.energy=0;
 
-  d.mon = "v"+(d.egg+1);
-  d.state="fix";
-  localStorage.setItem("mon",d.mon);
-  localStorage.setItem("state",d.state);
-
-  showEgg("v"+(d.egg+1));
+  p.mon = "v"+(p.egg+1);
+  p.state="fix";
+  //localStorage.setItem("mon",d.mon);
+  //localStorage.setItem("state",d.state);
+  save();
+  showEgg("v"+(p.egg+1));
   setTimer(30,"eggShake");
   setTimer(60,"hatch");
 }

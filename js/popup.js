@@ -5,15 +5,19 @@
 //tab.splice(index,1)
 var mouse={};
 var resize=false;
-var d={};
+var p = {};
+var b = {};
+load();
 var bgPort = chrome.runtime.connect({name: "P1"});
 var bg = chrome.extension.getBackgroundPage();
+/* - done with load
 var size = localStorage.getItem("size");
 var opa = localStorage.getItem("opacity");
 var bodyWidth = localStorage.getItem("bodyWidth");
 var bodyHeight = localStorage.getItem("bodyHeight");
 var showNotifications = localStorage.getItem("notifications");
-var statsZoneHeight = 50;
+*/
+p.statsZoneHeight = 50;
 
 // Main
 window.onload=function(){
@@ -21,22 +25,23 @@ window.onload=function(){
 }
 
 function main(){
-	console.log(localStorage.getItem("lastTime"));
+	load();
+	console.log(p.lastTime);
 
-	$("body").width(bodyWidth);
-	$("body").height(bodyHeight);
+	$("body").width(p.bodyWidth);
+	$("body").height(p.bodyHeight);
 	$("#screen").width($("body").width());
 	$("#screen").height($("body").height());
 
-	$("#statsZone").height(statsZoneHeight);
+	$("#statsZone").height(p.statsZoneHeight);
 
 	loadIcon("battle");
 	loadIcon("clean");
 
 	opacityFirst();
-	if(opa==null || opa==""){
-		opa = "false";
-		localStorage.setItem("opacity","false");
+	if(p.opacity==null || p.opacity==""){
+		p.opacity = "false";
+		save();
 	}
 
   //setInterval(function(){getDate()}, 1000);
@@ -117,15 +122,15 @@ function listeners(){
 function showDatas(){
 	$("#statsZone").toggle();
 	if($("#statsZone").is(":visible")){
-		$("body").height($("body").height()+statsZoneHeight);
+		$("body").height($("body").height()+p.statsZoneHeight);
 	}else{
-		$("body").height($("body").height()-statsZoneHeight);
+		$("body").height($("body").height()-p.statsZoneHeight);
 	}
 }
 function loadIcon(icon){
 	var img = 1;
-	if(localStorage.getItem(icon)!=null){
-		img = localStorage.getItem(icon);
+	if(window["p."+icon]!=null){
+		img = window["p."+icon];
 	}
 	$("#"+icon).css("background-image","url(\"../img/"+icon+img+".png\")");
 }
@@ -146,7 +151,7 @@ function mouseMove(){
 			$("#screen").width($("body").width());
 			$("#screen").height($("body").height());
 			if($("#statsZone").is(":visible")){
-				$("body").height(max+statsZoneHeight);
+				$("body").height(max+p.statsZoneHeight);
 			}
 			//$("html").width($("body").width());
 			//$("html").height($("body").height());
@@ -158,34 +163,41 @@ function resizeOn(){
 function resizeOff(){
 	if(resize){
 		resize=false;
-		localStorage.setItem("bodyWidth",$("body").width());
+		p.bodyWidth = $("body").width();
+		//localStorage.setItem("bodyWidth",$("body").width());
 		if($("#statsZone").is(":visible")){
-			localStorage.setItem("bodyHeight",$("body").height()-statsZoneHeight);
+			p.bodyHeight = $("body").height()-p.statsZoneHeight;
+			//localStorage.setItem("bodyHeight",$("body").height()-statsZoneHeight);
 		}else{
-			localStorage.setItem("bodyHeight",$("body").height());
+			p.bodyHeight = $("body").height();
+			//localStorage.setItem("bodyHeight",$("body").height());
 		}
+		save();
 	}
 }
 function opacity(){
-	if(opa=="true"){
-		localStorage.setItem("opacity","false");
-		opa = "false";
+	if(p.opacity=="true"){
+		p.opacity = "false";
+		//localStorage.setItem("opacity","false");
+		//opa = "false";
 		$("body").removeClass("opa");
 	}else{
-		localStorage.setItem("opacity","true");
-		opa = "true";
+		p.opacity = "true"
+		//localStorage.setItem("opacity","true");
+		//opa = "true";
 		$("body").addClass("opa");
 	}
+	save();
 }
 function opacityFirst(){
-	if(opa=="false"){
+	if(p.opacity=="false"){
 		$("body").removeClass("opa");
 	}else{
 		$("body").addClass("opa");
 	}
 }
 function select(){
-  switch(d.option){
+  switch(p.option){
     case "egg":
       selectEgg();
     break;
@@ -195,7 +207,7 @@ function select(){
   }
 }
 function confirm(){
-  switch(d.option){
+  switch(p.option){
     case "egg":
       confirmEgg();
     break;
@@ -205,7 +217,7 @@ function confirm(){
   }
 }
 function cancel(){
-  switch(d.option){
+  switch(p.option){
     case "menu":
       cancelMenu();
     break;
@@ -217,32 +229,43 @@ function init(){
   //load data, login, choose egg, resume
 
   //data load
+	load();
+	/*
   d.chooseEgg = localStorage.getItem("chooseEgg");
   d.option = localStorage.getItem("option");
   d.egg = localStorage.getItem("egg");
-
+	*/
   //egg check
-  if(d.chooseEgg == null){
+  if(p.chooseEgg == null){
     chooseEgg();
   }else{
       //resume
+			/*
       d.mon = localStorage.getItem("mon");
 			d.state = localStorage.getItem("state");
-      display(d.mon,d.state);
+			*/
+      display(p.mon,p.state);
   }
 }
 
 //Reset
 function reset(){
+	console.log("reset");
+	/*
   localStorage.removeItem("egg");
   localStorage.removeItem("option");
   localStorage.removeItem("chooseEgg");
 	localStorage.removeItem("lastTime");
 	localStorage.removeItem("timers");
-
-  d.menu="";
+	*/
+	localStorage.removeItem("popup");
+	localStorage.removeItem("background");
+	localStorage.removeItem("options");
+	p={};
+	b={};
+	o={};
   $(".menu div").removeClass("selected");
-  chrome.extension.getBackgroundPage().reset();
+  bg.reset();
   init();
 }
 

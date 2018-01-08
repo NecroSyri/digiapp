@@ -1,43 +1,43 @@
 
 //Menu
 function selectMenu(){
-  switch(d.menu){
+  switch(p.menu){
     case "stats" :
-      d.menu="food";
+      p.menu="food";
     break;
     case "food" :
-      d.menu="train";
+      p.menu="train";
     break;
     case "train" :
-      d.menu="battle";
+      p.menu="battle";
     break;
     case "battle" :
-      d.menu="clean";
+      p.menu="clean";
     break;
     case "clean" :
-      d.menu="light";
+      p.menu="light";
     break;
     case "light" :
-      d.menu="heal";
+      p.menu="heal";
     break;
     case "heal" :
-      d.menu="album";
+      p.menu="album";
     break;
     case "album" :
-      d.menu="connection";
+      p.menu="connection";
     break;
     case "connection" :
-      d.menu="stats";
+      p.menu="stats";
     break;
     default:
-      d.menu="stats";
+      p.menu="stats";
     break;
   }
   $(".menu div").removeClass("selected");
-  $("#"+d.menu).addClass("selected");
+  $("#"+p.menu).addClass("selected");
 }
 function confirmMenu(){
-  switch(d.menu){
+  switch(p.menu){
     case "stats" :
       selectStats();
     break;
@@ -72,5 +72,5 @@ function confirmMenu(){
 }
 function cancelMenu(){
   $(".menu div").removeClass("selected");
-  d.menu="";
+  p.menu="";
 }

@@ -7,6 +7,24 @@ function countSeconds(t1,t2){
     return Seconds_Between_Dates;
 }
 
+function save(){
+  localStorage.setItem("popup",JSON.stringify(p));
+}
+
+function load(){
+  var tmp = localStorage.getItem("popup");
+  if (tmp!=null && tmp != "" && tmp != "undefined" && tmp != undefined){
+    p = JSON.parse(tmp);
+  }
+}
+
+function loadBackground(){
+  var tmp = localStorage.getItem("background");
+  if (tmp!=null && tmp != "" && tmp != "undefined" && tmp != undefined){
+    b = JSON.parse(tmp);
+  }
+}
+
 function notification(title,message,icon){
   var opt = {
     type: "basic",
@@ -40,22 +58,27 @@ function random(min,max){
 }
 
 function setTimer(time,name){
-  var timers = localStorage.getItem("timers");
-  if(timers==null||timers=="null"||timers=="undefined"){
-    timers=[];
+  load();
+  loadBackground();
+  p.timers = b.timers;
+  //var timers = localStorage.getItem("timers");
+  if(p.timers==null||p.timers=="null"||p.timers=="undefined"){
+    p.timers=[];
   }else{
-    timers = JSON.parse(timers);
+    p.timers = JSON.parse(p.timers);
   }
-  timers.push([time,name]);
-  localStorage.setItem("timers",JSON.stringify(timers));
-  chrome.runtime.sendMessage("timer");
+  p.timers.push([time,name]);
+  //localStorage.setItem("timers",JSON.stringify(timers));
+  save();
+  bg.timeFromPopup();
+  //chrome.runtime.sendMessage("timer");
 }
 
 function eventsFromBackground(message){
   switch(message){
     case "eggShake":
-      d.state="shake";
-      display(d.mon,"shake");
+      p.state="shake";
+      display(p.mon,"shake");
     break;
     default:
       alert(message);

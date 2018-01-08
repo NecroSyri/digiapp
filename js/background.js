@@ -1,4 +1,5 @@
-var d = {};
+var b = {};
+var p = {};
 var popupPort;
 chrome.runtime.onConnect.addListener(function(port) {
   if(port.name == "P1") {
@@ -6,39 +7,40 @@ chrome.runtime.onConnect.addListener(function(port) {
     popupPort = port;
     popupPort.onDisconnect.addListener(function() {
         //close
-        var lastTime=new Date();
-        localStorage.setItem("lastTime",lastTime);
-        localStorage.setItem("timers",JSON.stringify(d.timers));
+        b.lastTime=new Date();
+        //localStorage.setItem("lastTime",lastTime);
+        //localStorage.setItem("timers",JSON.stringify(d.timers));
+        save();
     });
   }
 });
+/*
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     switch(message){
       case "timer":
-        d.timers = JSON.parse(localStorage.getItem("timers"));
+        //d.timers = JSON.parse(localStorage.getItem("timers"));
       break;
       default:
         alert(message);
       break;
     }
 });
-
+*/
 setInterval(function(){tick()}, 1000);
 function tick(){
-  if(d.timers!=null){
-    for(i=0;i<d.timers.length;i++){
-      d.timers[i][0]--
-      if(d.timers[i][0]<=0){
-        console.log(d.timers[i][1]);
-        timedEvent(d.timers.splice(i,1)[0][1]);
+  if(b.timers!=null){
+    for(i=0;i<b.timers.length;i++){
+      b.timers[i][0]--
+      if(b.timers[i][0]<=0){
+        console.log(b.timers[i][1]);
+        timedEvent(b.timers.splice(i,1)[0][1]);
       }
     }
   }
 }
 
 function init(){
-  d.hunger=localStorage.getItem("hunger");
-  d.strength=localStorage.getItem("strength");
+  load();
 }
 
 function reset(){
@@ -50,9 +52,32 @@ function timedEvent(event){
     case "hatch":
     break;
     case "eggShake":
-      d.state="shake";
-      localStorage.setItem("state",d.state);
+      b.state="shake";
+      save();
+      //localStorage.setItem("state",b.state);
       chrome.extension.sendMessage("eggShake");
     break;
+  }
+}
+
+function timeFromPopup(){
+  b.timers = p.timers;
+}
+
+function loadPopup(){
+  var tmp = localStorage.getItem("popup");
+  if (tmp!=null && tmp != "" && tmp != "undefined" && tmp != undefined){
+    p = JSON.parse(tmp);
+  }
+}
+
+function save(){
+  localStorage.setItem("background",JSON.stringify(b));
+}
+
+function load(){
+  var tmp = localStorage.getItem("background");
+  if (tmp!=null && tmp != "" && tmp != "undefined" && tmp != undefined){
+    b = JSON.parse(tmp);
   }
 }
