@@ -17,7 +17,7 @@ var bodyWidth = localStorage.getItem("bodyWidth");
 var bodyHeight = localStorage.getItem("bodyHeight");
 var showNotifications = localStorage.getItem("notifications");
 */
-p.statsZoneHeight = 50;
+var statsZoneHeight = 50;
 
 // Main
 window.onload=function(){
@@ -37,7 +37,7 @@ function main(){
 	$("#screen").width($("body").width());
 	$("#screen").height($("body").height());
 
-	$("#statsZone").height(p.statsZoneHeight);
+	$("#statsZone").height(statsZoneHeight);
 
 	loadIcon("battle");
 	loadIcon("clean");
@@ -126,9 +126,9 @@ function listeners(){
 function showDatas(){
 	$("#statsZone").toggle();
 	if($("#statsZone").is(":visible")){
-		$("body").height($("body").height()+p.statsZoneHeight);
+		$("body").height($("body").height()+statsZoneHeight);
 	}else{
-		$("body").height($("body").height()-p.statsZoneHeight);
+		$("body").height($("body").height()-statsZoneHeight);
 	}
 }
 function loadIcon(icon){
@@ -155,7 +155,7 @@ function mouseMove(){
 			$("#screen").width($("body").width());
 			$("#screen").height($("body").height());
 			if($("#statsZone").is(":visible")){
-				$("body").height(max+p.statsZoneHeight);
+				$("body").height(max+statsZoneHeight);
 			}
 			//$("html").width($("body").width());
 			//$("html").height($("body").height());
@@ -170,7 +170,7 @@ function resizeOff(){
 		p.bodyWidth = $("body").width();
 		//localStorage.setItem("bodyWidth",$("body").width());
 		if($("#statsZone").is(":visible")){
-			p.bodyHeight = $("body").height()-p.statsZoneHeight;
+			p.bodyHeight = $("body").height()-statsZoneHeight;
 			//localStorage.setItem("bodyHeight",$("body").height()-statsZoneHeight);
 		}else{
 			p.bodyHeight = $("body").height();
