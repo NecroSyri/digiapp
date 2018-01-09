@@ -37,6 +37,9 @@ function reset(){
 function timedEvent(event){
   switch(event){
     case "hatch":
+      b.state="hatch";
+      save;
+      chrome.extension.sendMessage("hatch");
     break;
     case "eggShake":
       b.state="shake";

@@ -23,7 +23,12 @@ function display(mon,anim){
 			  myAnimation.loopBetween(eggNum*3-2,eggNum*3-1,true);
 		  break;
 		  case "hatch":
-			  myAnimation.loopBetween(eggNum*3-2,eggNum*3,true);
+			  myAnimation.fromTo(eggNum*3-2,eggNum*3,{
+					onCompleteParams:null,
+					onComplete:function(){
+							//TODO - after hatching
+					}
+				});
 		  break;
 			default:
 				myAnimation.loopBetween(eggNum*3-2,eggNum*3-2,true);

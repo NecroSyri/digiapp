@@ -15,3 +15,20 @@ function setTimer(time,name){
   console.log(p.timers);
   bg.timeFromPopup(p.timers);
 }
+
+//Events received from background (like timer out)
+function eventsFromBackground(message){
+  switch(message){
+    case "eggShake":
+      p.state="shake";
+      display(p.mon,"shake");
+    break;
+    case "hatch":
+      p.state="hatch";
+      display(p.mon,"hatch");
+    break;
+    default:
+      alert(message);
+    break;
+  }
+}

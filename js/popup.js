@@ -33,7 +33,7 @@ function main(){
 	loadIcon("clean");
 
 	opacityFirst();
-	if(p.opacity==null || p.opacity==""){
+	if(p.opacity==null || p.opacity=="" || p.opacity=="undefined" || p.opacity==undefined){
 		p.opacity = "false";
 		save();
 	}
@@ -233,6 +233,7 @@ function reset(){
 	p={};
 	b={};
 	o={};
+	p.opacity = "false";
   $(".menu div").removeClass("selected");
   bg.reset();
   init();

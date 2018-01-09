@@ -43,5 +43,5 @@ function confirmEgg(){
   save();
   showEgg("v"+(p.egg+1));
   setTimer(5,"eggShake");
-  setTimer(60,"hatch");
+  setTimer(10,"hatch");
 }

@@ -56,15 +56,3 @@ function call(isCalling){
 function random(min,max){
   return min + Math.floor(Math.random() * max);
 }
-
-function eventsFromBackground(message){
-  switch(message){
-    case "eggShake":
-      p.state="shake";
-      display(p.mon,"shake");
-    break;
-    default:
-      alert(message);
-    break;
-  }
-}
