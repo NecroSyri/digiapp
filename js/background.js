@@ -8,26 +8,13 @@ chrome.runtime.onConnect.addListener(function(port) {
     popupPort.onDisconnect.addListener(function() {
         //close
         b.lastTime=new Date();
-        //localStorage.setItem("lastTime",lastTime);
-        //localStorage.setItem("timers",JSON.stringify(d.timers));
         save();
     });
   }
 });
-/*
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-    switch(message){
-      case "timer":
-        //d.timers = JSON.parse(localStorage.getItem("timers"));
-      break;
-      default:
-        alert(message);
-      break;
-    }
-});
-*/
 setInterval(function(){tick()}, 1000);
 function tick(){
+  console.log(b.timers);
   if(b.timers!=null){
     for(i=0;i<b.timers.length;i++){
       b.timers[i][0]--
@@ -54,14 +41,14 @@ function timedEvent(event){
     case "eggShake":
       b.state="shake";
       save();
-      //localStorage.setItem("state",b.state);
       chrome.extension.sendMessage("eggShake");
     break;
   }
 }
 
-function timeFromPopup(){
-  b.timers = p.timers;
+function timeFromPopup(popupTime){
+  b.timers = popupTime;
+  save();
 }
 
 function loadPopup(){

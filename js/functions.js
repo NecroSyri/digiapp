@@ -57,23 +57,6 @@ function random(min,max){
   return min + Math.floor(Math.random() * max);
 }
 
-function setTimer(time,name){
-  load();
-  loadBackground();
-  p.timers = b.timers;
-  //var timers = localStorage.getItem("timers");
-  if(p.timers==null||p.timers=="null"||p.timers=="undefined"){
-    p.timers=[];
-  }else{
-    p.timers = JSON.parse(p.timers);
-  }
-  p.timers.push([time,name]);
-  //localStorage.setItem("timers",JSON.stringify(timers));
-  save();
-  bg.timeFromPopup();
-  //chrome.runtime.sendMessage("timer");
-}
-
 function eventsFromBackground(message){
   switch(message){
     case "eggShake":

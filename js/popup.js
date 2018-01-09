@@ -1,8 +1,5 @@
 // Global
 
-//tab in storage = JSON.stringify(tab) / JSON.parse(tab)
-//tab.push([time,event])
-//tab.splice(index,1)
 var mouse={};
 var resize=false;
 var p = {};
@@ -10,13 +7,6 @@ var b = {};
 load();
 var bgPort = chrome.runtime.connect({name: "P1"});
 var bg = chrome.extension.getBackgroundPage();
-/* - done with load
-var size = localStorage.getItem("size");
-var opa = localStorage.getItem("opacity");
-var bodyWidth = localStorage.getItem("bodyWidth");
-var bodyHeight = localStorage.getItem("bodyHeight");
-var showNotifications = localStorage.getItem("notifications");
-*/
 var statsZoneHeight = 50;
 
 // Main
@@ -48,7 +38,6 @@ function main(){
 		save();
 	}
 
-  //setInterval(function(){getDate()}, 1000);
   setInterval(function(){tick()}, 1000);
 
   // Init
@@ -157,8 +146,6 @@ function mouseMove(){
 			if($("#statsZone").is(":visible")){
 				$("body").height(max+statsZoneHeight);
 			}
-			//$("html").width($("body").width());
-			//$("html").height($("body").height());
 	}
 }
 function resizeOn(){
@@ -168,13 +155,10 @@ function resizeOff(){
 	if(resize){
 		resize=false;
 		p.bodyWidth = $("body").width();
-		//localStorage.setItem("bodyWidth",$("body").width());
 		if($("#statsZone").is(":visible")){
 			p.bodyHeight = $("body").height()-statsZoneHeight;
-			//localStorage.setItem("bodyHeight",$("body").height()-statsZoneHeight);
 		}else{
 			p.bodyHeight = $("body").height();
-			//localStorage.setItem("bodyHeight",$("body").height());
 		}
 		save();
 	}
@@ -182,13 +166,9 @@ function resizeOff(){
 function opacity(){
 	if(p.opacity=="true"){
 		p.opacity = "false";
-		//localStorage.setItem("opacity","false");
-		//opa = "false";
 		$("body").removeClass("opa");
 	}else{
 		p.opacity = "true"
-		//localStorage.setItem("opacity","true");
-		//opa = "true";
 		$("body").addClass("opa");
 	}
 	save();
@@ -234,33 +214,19 @@ function init(){
 
   //data load
 	load();
-	/*
-  d.chooseEgg = localStorage.getItem("chooseEgg");
-  d.option = localStorage.getItem("option");
-  d.egg = localStorage.getItem("egg");
-	*/
+	loadBackground();
   //egg check
   if(p.chooseEgg == null){
     chooseEgg();
   }else{
       //resume
-			/*
-      d.mon = localStorage.getItem("mon");
-			d.state = localStorage.getItem("state");
-			*/
+			p.state = b.state;
       display(p.mon,p.state);
   }
 }
 
 //Reset
 function reset(){
-	/*
-  localStorage.removeItem("egg");
-  localStorage.removeItem("option");
-  localStorage.removeItem("chooseEgg");
-	localStorage.removeItem("lastTime");
-	localStorage.removeItem("timers");
-	*/
 	localStorage.removeItem("popup");
 	localStorage.removeItem("background");
 	localStorage.removeItem("options");
