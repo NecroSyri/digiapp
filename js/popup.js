@@ -161,6 +161,7 @@ function resizeOff(){
 			p.bodyHeight = $("body").height();
 		}
 		save();
+		window.close();
 	}
 }
 function opacity(){

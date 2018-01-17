@@ -85,6 +85,7 @@ function egg(o){
         break;
     }
     display(o.mon,o.state);
+    save();
 }
 
 function baby(o){

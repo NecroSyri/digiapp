@@ -41,14 +41,14 @@ function display(mon,anim){
 	  }
 	}else{
 		//mons 16x14
-		$("#mon").css("background","url(\"../img/v"+(p.egg+1)+"spriteBW.png\")");
+		$("#mon").css("background","url(\"../img/sprites/"+p.mon+".png\")");
 		$("#mon").css("background-size","1600%");
 		$("#mon").css("background-position","0% 0");
 	  var myAnimation = new AM.Sprite(document.getElementById('mon'),{
 	    fps:5,
-	    totalFames:224,
+	    totalFames:16,
 	    columns:16,
-	    rows:14
+	    rows:1
 	  });
 		switch(anim){
 		  case "iddle":
