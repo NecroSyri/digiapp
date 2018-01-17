@@ -4,9 +4,12 @@
 function display(mon,anim){
 	$(".inscreen.mon").html("<div id=\"mon\"></div>");
 
+	//eggs
 	if(mon=="v1"||mon=="v2"||mon=="v3"||mon=="v4"||mon=="v5"){
 		var eggNum = mon.replace("v","");
-		$("#mon").addClass('egg');
+		$("#mon").css("background","url(\"../img/v1eggsBW.png\")");
+		$("#mon").css("background-size","300%");
+		$("#mon").css("background-position","0% 0");
 	  var myAnimation = new AM.Sprite(document.getElementById('mon'),{
 	    fps:5,
 	    totalFames:18,
@@ -27,12 +30,32 @@ function display(mon,anim){
 					onCompleteParams:null,
 					onComplete:function(){
 							//TODO - after hatching
+							egg(p);
 					}
 				});
 		  break;
 			default:
 				myAnimation.loopBetween(eggNum*3-2,eggNum*3-2,true);
 				myAnimation.pause();
+			break;
+	  }
+	}else{
+		//mons 16x14
+		$("#mon").css("background","url(\"../img/v"+(p.egg+1)+"spriteBW.png\")");
+		$("#mon").css("background-size","1600%");
+		$("#mon").css("background-position","0% 0");
+	  var myAnimation = new AM.Sprite(document.getElementById('mon'),{
+	    fps:5,
+	    totalFames:224,
+	    columns:16,
+	    rows:14
+	  });
+		switch(anim){
+		  case "iddle":
+			  myAnimation.loopBetween(p.sprite*3-2,p.sprite*3,true);
+		  break;
+			default:
+				myAnimation.loopBetween(p.sprite*3-2,p.sprite*3,true);
 			break;
 	  }
 	}

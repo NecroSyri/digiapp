@@ -3,7 +3,7 @@ function chooseEgg(){
   toggleChooseArrows(false);
   p.option = "egg";
   if(p.egg == null){
-    p.egg = "0";
+    p.egg = 0;
   }
   save();
   showEgg("v1");
@@ -39,6 +39,7 @@ function confirmEgg(){
   p.energy=0;
 
   p.mon = "v"+(p.egg+1);
+  p.sprite = p.egg+1;
   p.state="fix";
   save();
   showEgg("v"+(p.egg+1));

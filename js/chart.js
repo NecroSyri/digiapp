@@ -61,27 +61,30 @@ function chart(o){
 
 function egg(o){
     switch(o.mon){
-        case "Red":
-            return "Jarimon";
+        case "v1":
+          //botamon
+          o.sleepTime="20h";
+          o.sleepVar="45m";
+          o.feedInterval="3h";
+          o.energy=10;
+          o.mon="botamon"
+          o.sprite=1;
+          o.state="iddle";
         break;
-        case "Blue":
-            return "Poyomon";
+        case "v2":
+          //punimon
         break;
-        case "Green":
-            return "Yuramon";
+        case "v3":
+          //poyomon
         break;
-        case "Yellow":
-            //botamon
-            o.sleepTime="20h";
-            o.sleepVar="45m";
-            o.feedInterval="3h";
-            o.energy=10;
-            return "Botamon";
+        case "v4":
+            //yuramon
         break;
-        case "Light blue":
-            return "Dodomon";
+        case "v5":
+            //zurumon
         break;
     }
+    display(o.mon,o.state);
 }
 
 function baby(o){

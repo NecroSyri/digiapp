@@ -128,11 +128,6 @@ body{
 	left:25%;
 	position:absolute;
 }
-.egg{
-	background:url("../img/v1eggsBW.png");
-	background-size:300%;
-	background-position : 0% 0;
-}
 #leftArrow{
 	background:url("../img/left.png");
 	background-size: 100%;

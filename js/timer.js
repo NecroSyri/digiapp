@@ -12,7 +12,7 @@ function setTimer(time,name){
   }
   p.timers.push([time,name]);
   save();
-  console.log(p.timers);
+  //console.log(p.timers);
   bg.timeFromPopup(p.timers);
 }
 
