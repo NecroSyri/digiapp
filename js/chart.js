@@ -69,7 +69,7 @@ function egg(o){
           o.energy=10;
           o.mon="botamon"
           o.sprite=1;
-          o.state="iddle";
+          o.state="idle";
         break;
         case "v2":
           //punimon
@@ -84,8 +84,8 @@ function egg(o){
             //zurumon
         break;
     }
-    display(o.mon,o.state);
     save();
+    display(o.mon,o.state);
 }
 
 function baby(o){

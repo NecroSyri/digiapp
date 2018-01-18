@@ -51,8 +51,25 @@ function display(mon,anim){
 	    rows:1
 	  });
 		switch(anim){
-		  case "iddle":
-			  myAnimation.loopBetween(p.sprite*3-2,p.sprite*3,true);
+		  case "idle":
+				var sprite = random(1,3);
+				var dir = random(1,3);
+				myAnimation.fromTo(sprite,sprite,{
+					onCompleteParams:null,
+					onComplete:function(){
+						switch(dir){
+							case 1:
+								$("#mon").css("left",$("#mon").position().left +5);
+							break;
+							case 2:
+								$("#mon").css("left",$("#mon").position().left -5);
+							break;
+							default:
+							break;
+						}
+						display(p.mon,p.state);
+					}
+				});
 		  break;
 			default:
 				myAnimation.loopBetween(p.sprite*3-2,p.sprite*3,true);

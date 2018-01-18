@@ -234,7 +234,7 @@ function reset(){
 	p={};
 	b={};
 	o={};
-	p.opacity = "false";
+	p.opacity = "true";
   $(".menu div").removeClass("selected");
   bg.reset();
   init();
