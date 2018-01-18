@@ -84,7 +84,9 @@ function egg(o){
             //zurumon
         break;
     }
+    b.state=o.state;
     save();
+    saveBackground();
     display(o.mon,o.state);
 }
 

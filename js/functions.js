@@ -18,6 +18,10 @@ function load(){
   }
 }
 
+function saveBackground(){
+  localStorage.setItem("popup",JSON.stringify(b));
+}
+
 function loadBackground(){
   var tmp = localStorage.getItem("background");
   if (tmp!=null && tmp != "" && tmp != "undefined" && tmp != undefined){
