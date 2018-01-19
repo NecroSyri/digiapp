@@ -7,11 +7,9 @@ var b = {};
   b.timers - array of timers [time_untill_event,"event_name"]
   b.screenHeight
   b.screenWidth
-
-  on launch
-  if mon null
-    choose eggs
-  else 
+  b.opacity
+  b.lastTime
+  b.pause
 */
 var p = {};
 var popupPort;
@@ -63,6 +61,7 @@ function timedEvent(event){
   }
 }
 
+/*
 function timeFromPopup(popupTime){
   b.timers = popupTime;
   save();
@@ -85,7 +84,7 @@ function load(){
     b = JSON.parse(tmp);
   }
 }
-
+*/
 function getLastTime(){
   return b.lastTime;
 }
