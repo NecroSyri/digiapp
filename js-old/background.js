@@ -1,18 +1,4 @@
 var b = {};
-/*
- Object b :
-  b.mon - name of mon
-  b.state - animation state (idle/taining/eating...)
-  b.menu - selected menu
-  b.timers - array of timers [time_untill_event,"event_name"]
-  b.screenHeight
-  b.screenWidth
-
-  on launch
-  if mon null
-    choose eggs
-  else 
-*/
 var p = {};
 var popupPort;
 chrome.runtime.onConnect.addListener(function(port) {
