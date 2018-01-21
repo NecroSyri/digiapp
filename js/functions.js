@@ -9,12 +9,14 @@ function countSeconds(t1,t2){
 
 function save(){
 	localStorage.setItem("datas",JSON.stringify(d));
+	debug("save() - d : "+JSON.stringify(d));
 }
 
 function load(){
 	var tmp = localStorage.getItem("datas");
 	if (!isNull(tmp)){
 		d = JSON.parse(tmp);
+		debug("load() - d : "+JSON.stringify(d));
 	}
 }
 

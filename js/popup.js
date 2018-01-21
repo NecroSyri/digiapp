@@ -28,6 +28,7 @@ function main(){
 // INITS
 function initDimensions(){
 	if(isNull(d.bodyHeight) || isNull(d.bodyWidth)){
+		debug("initDimensions() - isNull");
 		d.bodyWidth=64;
 		d.bodyHeight=64;
 	}
@@ -201,7 +202,8 @@ function resizeOff(){
 
 // RESET
 function reset(){
-	localStorage.clear();
+	localStorage.removeItem("d");
+	d={};
 	window.close();
 }
 // TICKS
