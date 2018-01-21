@@ -1,90 +1,74 @@
-var b = {};
+var debugMode=true;
 /*
- Object b :
-  b.mon - name of mon
-  b.state - animation state (idle/taining/eating...)
-  b.menu - selected menu
-  b.timers - array of timers [time_untill_event,"event_name"]
-  b.screenHeight
-  b.screenWidth
-  b.opacity
-  b.lastTime
-  b.pause
-*/
-var p = {};
+ Object d :
+  d.mon - name of mon
+  d.state - animation state (idle/taining/eating...)
+  d.menu - selected menu
+  d.timers - array of timers [time_untill_event,"event_name"]
+  d.screenHeight
+  d.screenWidth
+  d.opacity
+  d.lastTime
+  d.pause
+  d.eggsList
+ */
+var d = {};
 var popupPort;
 chrome.runtime.onConnect.addListener(function(port) {
-  if(port.name == "P1") {
-    init();
-    popupPort = port;
-    popupPort.onDisconnect.addListener(function() {
-        //close
-        b.lastTime=new Date();
-        save();
-    });
-  }
+	//on popup open	
+	if(port.name == "P1") {
+		init();
+		popupPort = port;
+		//on popup close
+		popupPort.onDisconnect.addListener(function() {
+			d.lastTime=new Date();
+			save();
+		});
+	}
 });
+//tick every seconds
 setInterval(function(){tick()}, 1000);
 function tick(){
-  console.log(b.timers);
-  if(b.timers!=null){
-    for(i=0;i<b.timers.length;i++){
-      b.timers[i][0]--
-      if(b.timers[i][0]<=0){
-        console.log(b.timers[i][1]);
-        timedEvent(b.timers.splice(i,1)[0][1]);
-      }
-    }
-  }
+	//if there's timers, run trough all of them, decrement them, if they reach 0, trigger event
+	if(d.timers!=null){
+		for(i=0;i<d.timers.length;i++){
+			d.timers[i][0]--
+			if(d.timers[i][0]<=0){
+				debug("tick() - d.timers["+i+"][1]"+d.timers[i][1]);
+				timedEvent(d.timers.splice(i,1)[0][1]);
+			}
+		}
+	}
 }
 
 function init(){
-  load();
-}
-
-function reset(){
-  init();
+	load();
+	if(isNull(d.mon)){
+		eggChoose();
+	}else{
+		//resume
+	}
 }
 
 function timedEvent(event){
-  switch(event){
-    case "hatch":
-      b.state="hatch";
-      save;
-      chrome.extension.sendMessage("hatch");
-    break;
-    case "eggShake":
-      b.state="shake";
-      save();
-      chrome.extension.sendMessage("eggShake");
-    break;
-  }
+	switch(event){
+	case "hatch":
+		d.state="hatch";
+		save;
+		trigger("hatch");
+		break;
+	case "eggShake":
+		d.state="shake";
+		save();
+		trigger("eggShake");
+		break;
+	}
 }
 
-/*
-function timeFromPopup(popupTime){
-  b.timers = popupTime;
-  save();
+function trigger(event){
+	chrome.extension.sendMessage(event);
 }
 
-function loadPopup(){
-  var tmp = localStorage.getItem("popup");
-  if (tmp!=null && tmp != "" && tmp != "undefined" && tmp != undefined){
-    p = JSON.parse(tmp);
-  }
-}
-
-function save(){
-  localStorage.setItem("background",JSON.stringify(b));
-}
-
-function load(){
-  var tmp = localStorage.getItem("background");
-  if (tmp!=null && tmp != "" && tmp != "undefined" && tmp != undefined){
-    b = JSON.parse(tmp);
-  }
-}
-*/
 function getLastTime(){
-  return b.lastTime;
+	return d.lastTime;
 }
