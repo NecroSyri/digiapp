@@ -21,6 +21,7 @@ chrome.runtime.onConnect.addListener(function(port) {
 		popupPort = port;
 		//on popup close
 		popupPort.onDisconnect.addListener(function() {
+			load();
 			d.lastTime=new Date();
 			save();
 		});
@@ -71,4 +72,8 @@ function trigger(event){
 
 function getLastTime(){
 	return d.lastTime;
+}
+
+function reset(){
+	d={};
 }

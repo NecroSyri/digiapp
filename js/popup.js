@@ -202,8 +202,9 @@ function resizeOff(){
 
 // RESET
 function reset(){
-	localStorage.removeItem("d");
+	localStorage.removeItem("datas");
 	d={};
+	bg.reset();
 	window.close();
 }
 // TICKS

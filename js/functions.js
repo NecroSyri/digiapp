@@ -17,6 +17,8 @@ function load(){
 	if (!isNull(tmp)){
 		d = JSON.parse(tmp);
 		debug("load() - d : "+JSON.stringify(d));
+	}else{
+		debug("load() - d : empty");
 	}
 }
 
