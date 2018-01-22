@@ -14,14 +14,14 @@ window.onload=function(){
 
 function main(){
 	debug("Last time : "+bg.getLastTime());
-	
+
 	load();
 	initDimensions();
 	initOpacity();
 	initListeners();
-	
 	//initIcon(...);
 
+	bg.popupReady();
 	setInterval(function(){tick()}, 1000);
 }
 
@@ -81,6 +81,7 @@ function initListeners(){
 		mouseMove();
 	});
 	chrome.extension.onMessage.addListener(function(message, messageSender, sendResponse) {
+		debug("got message : "+message);
 		events(message);
 	});
 	// Keypress

@@ -15,7 +15,7 @@ var debugMode=true;
 var d = {};
 var popupPort;
 chrome.runtime.onConnect.addListener(function(port) {
-	//on popup open	
+	//on popup open
 	if(port.name == "P1") {
 		init();
 		popupPort = port;
@@ -44,11 +44,16 @@ function tick(){
 
 function init(){
 	load();
-	if(isNull(d.mon)){
-		eggChoose();
-	}else{
-		//resume
-	}
+}
+
+function popupReady(){
+  if(isNull(d.mon)){
+    debug("init() - d.mon null > eggChoose()");
+    eggChoose();
+  }else{
+    //resume
+    debug("init() - resume - d.mon : "+d.mon);
+  }
 }
 
 function timedEvent(event){
@@ -67,6 +72,7 @@ function timedEvent(event){
 }
 
 function trigger(event){
+  debug("trigger() - event : "+event);
 	chrome.extension.sendMessage(event);
 }
 
