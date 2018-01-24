@@ -16,14 +16,17 @@ var debugMode=true;
   d.eggsList
  */
 var d = {};
+var popup=false;
 var popupPort;
 chrome.runtime.onConnect.addListener(function(port) {
 	//on popup open
 	if(port.name == "P1") {
+		popup=true;
 		init();
 		popupPort = port;
 		//on popup close
 		popupPort.onDisconnect.addListener(function() {
+			popup=false;
 			load();
 			d.lastTime=new Date();
 			save();
@@ -39,7 +42,7 @@ function tick(){
 			d.timers[i][0]--
 			if(d.timers[i][0]<=0){
 				debug("tick() - d.timers["+i+"][1]"+d.timers[i][1]);
-				timedEvent(d.timers.splice(i,1)[0][1]);
+				triggerEvent(d.timers.splice(i,1)[0][1]);
 			}
 		}
 	}
@@ -55,28 +58,14 @@ function popupReady(){
     trigger("eggChoose");
   }else{
     //resume
+		trigger("resume");
     debug("init() - resume - d.mon : "+d.mon);
   }
 }
 
-function timedEvent(event){
-	switch(event){
-	case "hatch":
-		d.state="hatch";
-		save;
-		trigger("hatch");
-		break;
-	case "eggShake":
-		d.state="shake";
-		save();
-		trigger("eggShake");
-		break;
-	}
-}
-
 function trigger(event){
   debug("trigger() - event : "+event);
-	chrome.extension.sendMessage(event);
+	triggerEvent(event);
 }
 
 function getLastTime(){

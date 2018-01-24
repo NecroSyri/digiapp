@@ -62,6 +62,18 @@ function isNull(o){
 	}
 }
 
+function windowEvent(event,param){
+  if(!isNull(window[event])){
+    if(isNull(param)){
+      window[event]();
+    }else{
+      window[event](param);
+    }
+  }else{
+    debug("window["+event+"] not exist")
+  }
+}
+
 // DEBUG LOG
 function debug(message){
 	if(debugMode){
