@@ -2,7 +2,10 @@ var debugMode=true;
 /*
  Object d :
   d.mon - name of mon
+	d.egg - name of egg
+	d.stage - egg/baby...
   d.state - animation state (idle/taining/eating...)
+	d.process - current process
   d.menu - selected menu
   d.timers - array of timers [time_untill_event,"event_name"]
   d.screenHeight
@@ -49,7 +52,7 @@ function init(){
 function popupReady(){
   if(isNull(d.mon)){
     debug("init() - d.mon null > eggChoose()");
-    eggChoose();
+    trigger("eggChoose");
   }else{
     //resume
     debug("init() - resume - d.mon : "+d.mon);
