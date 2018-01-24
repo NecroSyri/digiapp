@@ -1,10 +1,11 @@
 function setTimer(time,name){
+  load();
   if(isNull(d.timers)){
     d.timers=[];
   }
   d.timers.push([time,name]);
-  save();
   debug("setTimer() - d.timers : "+d.timers);
+  save();
 }
 
 function triggerEvent(message){
