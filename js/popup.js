@@ -26,7 +26,7 @@ function main(){
 
 // INITS
 function initDimensions(){
-	if(isNull(d.bodyHeight) || isNull(d.bodyWidth)){
+	if(isNull(bg.d.bodyHeight) || isNull(bg.d.bodyWidth)){
 		debug("initDimensions() - isNull");
 		bg.d.bodyWidth=64;
 		bg.d.bodyHeight=64;
