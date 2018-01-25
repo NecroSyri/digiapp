@@ -39,9 +39,16 @@ function tick(){
 	if(d.timers!=null){
 		for(i=0;i<d.timers.length;i++){
 			d.timers[i][0]--
-			if(d.timers[i][0]<=0){
+			if(d.timers[i][0]<=0 && popup){
 				debug("tick() - d.timers["+i+"][1]"+d.timers[i][1]);
 				triggerEvent(d.timers.splice(i,1)[0][1]);
+			}else{
+				if(isNull(d.todo)){
+					d.todo=[];
+				}
+				d.todo.push(d.timers.splice(i,1)[0][1]);
+				debug("tick() - d.todo : "+d.todo);
+				save();
 			}
 		}
 	}
