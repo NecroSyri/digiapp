@@ -12,10 +12,11 @@ function eggsConfirm(){
 	bg.d.process = "menu";
 	bg.d.egg = bg.d.eggsList[bg.d.egg];
 	bg.d.mon = bg.d.egg;
+	bg.save();
+	debug("d.mon : "+bg.d.mon);
 	toggleChooseArrows(false);
 	bg.setTimer(5,"eggShake");
 	bg.setTimer(10,"eggHatch");
-	bg.save();
 }
 function eggsCancel(){
 
