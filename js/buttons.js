@@ -5,13 +5,13 @@
 */
 
 function select(){
-  window[d.process+"Select"]();
+  window[bg.d.process+"Select"]();
 }
 
 function confirm(){
-  window[d.process+"Confirm"]();
+  window[bg.d.process+"Confirm"]();
 }
 
 function cancel(){
-  window[d.process+"Cancel"]();
+  window[bg.d.process+"Cancel"]();
 }
