@@ -27,7 +27,6 @@ chrome.runtime.onConnect.addListener(function(port) {
 		//on popup close
 		popupPort.onDisconnect.addListener(function() {
 			popup=false;
-			load();
 			d.lastTime=new Date();
 			save();
 		});

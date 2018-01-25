@@ -6,6 +6,7 @@ function setTimer(time,name){
   d.timers.push([time,name]);
   debug("setTimer() - d.timers : "+d.timers);
   save();
+  trigger("load");
 }
 
 function triggerEvent(message){

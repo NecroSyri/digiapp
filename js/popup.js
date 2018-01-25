@@ -5,7 +5,6 @@ var resize=false;
 var bgPort = chrome.runtime.connect({name: "P1"});
 var bg = chrome.extension.getBackgroundPage();
 var statsZoneHeight = 50;
-var d={};
 
 // MAIN
 window.onload=function(){
@@ -15,7 +14,7 @@ window.onload=function(){
 function main(){
 	debug("Last time : "+bg.getLastTime());
 
-	load();
+	bg.load();
 	initDimensions();
 	initOpacity();
 	initListeners();
@@ -29,11 +28,11 @@ function main(){
 function initDimensions(){
 	if(isNull(d.bodyHeight) || isNull(d.bodyWidth)){
 		debug("initDimensions() - isNull");
-		d.bodyWidth=64;
-		d.bodyHeight=64;
+		bg.d.bodyWidth=64;
+		bg.d.bodyHeight=64;
 	}
-	$("body").width(d.bodyWidth);
-	$("body").height(d.bodyHeight);
+	$("body").width(bg.d.bodyWidth);
+	$("body").height(bg.d.bodyHeight);
 	$("#screen").width($("body").width());
 	$("#screen").height($("body").height());
 
@@ -41,24 +40,24 @@ function initDimensions(){
 }
 
 function initOpacity(){
-	debug("initOpacity() - d.opacity : "+d.opacity);
-	if(isNull(d.opacity)){
-		d.opacity = "true";
+	debug("initOpacity() - d.opacity : "+bg.d.opacity);
+	if(isNull(bg.d.opacity)){
+		bg.d.opacity = "true";
 	}
-	if(d.opacity=="false"){
+	if(bg.d.opacity=="false"){
 		debug("initOpacity() - remove opa");
 		$("body").removeClass("opa");
 	}else{
 		debug("initOpacity() - add opa");
 		$("body").addClass("opa");
 	}
-	save();
+	bg.save();
 }
 
 function initIcon(icon){
 	var img = 1;
-	if(window["d."+icon]!=null){
-		img = window["d."+icon];
+	if(window["bg.d."+icon]!=null){
+		img = window["bg.d."+icon];
 	}
 	$("#"+icon).css("background-image","url(\"../img/"+icon+img+".png\")");
 }
@@ -140,17 +139,17 @@ function keyPress(key){
 
 // OPACITY
 function opacity(){
-	debug("opacity() - d.opacity : "+d.opacity);
-	if(d.opacity=="true"){
+	debug("opacity() - bg.d.opacity : "+bg.d.opacity);
+	if(bg.d.opacity=="true"){
 		debug("opacity() - set false, remove opa");
-		d.opacity = "false";
+		bg.d.opacity = "false";
 		$("body").removeClass("opa");
 	}else{
 		debug("opacity() - set true, add opa");
-		d.opacity = "true"
+		bg.d.opacity = "true"
 		$("body").addClass("opa");
 	}
-	save();
+	bg.save();
 }
 
 // DATA ZONE
@@ -191,20 +190,19 @@ function resizeOn(){
 function resizeOff(){
 	if(resize){
 		resize=false;
-		d.bodyWidth = $("body").width();
+		bg.d.bodyWidth = $("body").width();
 		if($("#statsZone").is(":visible")){
-			d.bodyHeight = $("body").height()-statsZoneHeight;
+			bg.d.bodyHeight = $("body").height()-statsZoneHeight;
 		}else{
-			d.bodyHeight = $("body").height();
+			bg.d.bodyHeight = $("body").height();
 		}
-		save();
+		bg.save();
 	}
 }
 
 // RESET
 function reset(){
 	localStorage.removeItem("datas");
-	d={};
 	bg.reset();
 	window.close();
 }

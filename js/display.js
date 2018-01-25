@@ -17,7 +17,7 @@ function display(mon,anim){
 	debug("display() - mon : "+mon+" anim : "+anim)
 	$("#mon").css("background","url(\"../img/sprites/"+mon+".png\")");
 	$("#mon").css("background-position","0% 0");
-	if(d.stage=="Egg"){
+	if(bg.d.stage=="Egg"){
 		$("#mon").css("background-size","300%");
 		var myAnimation = new AM.Sprite(document.getElementById('mon'),{
 			fps:5,
