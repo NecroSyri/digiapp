@@ -46,7 +46,7 @@ function display(mon,anim){
 			myAnimation.fromTo(1,3,{
 				onCompleteParams:null,
 				onComplete:function(){
-						//TODO - after hatching
+						eggHatching();
 				}
 			});
 		break;

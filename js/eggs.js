@@ -50,3 +50,7 @@ function eggHatch(){
 	bg.save();
 	display(bg.d.mon,bg.d.state);
 }
+
+function eggHatching(){
+	bg.digivolve();
+}
