@@ -55,7 +55,7 @@ function random(min,max){
 }
 
 function isNull(o){
-	if(o==null || o=="null" || o==undefined || o=="undefined" || o==""){
+	if(o==null || o=="null" || o==undefined || o=="undefined"){
 		return true;
 	}else{
 		return false;

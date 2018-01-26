@@ -56,6 +56,8 @@ function tick(){
 
 function init(){
 	load();
+	d.menus=["stats","food","train","battle","clean","light","heal","album","connection"];
+	save();
 }
 
 function popupReady(){
