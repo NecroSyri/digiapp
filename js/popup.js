@@ -14,6 +14,7 @@ window.onload=function(){
 function main(){
 	debug("Last time : "+bg.getLastTime());
 
+	bg.popup=true;
 	bg.load();
 	initDimensions();
 	initOpacity();
