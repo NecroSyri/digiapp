@@ -65,17 +65,12 @@ function init(){
 function popupReady(){
   if(isNull(d.mon)){
     debug("init() - d.mon null > eggChoose()");
-    trigger("eggChoose");
+    triggerEvent("eggChoose");
   }else{
     //resume
-		trigger("resume");
+		triggerEvent("resume");
     debug("init() - resume - d.mon : "+d.mon);
   }
-}
-
-function trigger(event){
-  debug("trigger() - event : "+event);
-	triggerEvent(event);
 }
 
 function getLastTime(){

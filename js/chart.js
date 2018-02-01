@@ -24,5 +24,5 @@ function digivolve(){
       break;
   }
   save();
-  display(d.mon,d.state);
+  triggerEvent("display,[d.mon,d.state]");
 }
