@@ -1,5 +1,5 @@
 function digivolve(){
-  switch d.mon{
+  switch(d.mon){
       case "v1":
         //botamon
         d.sleepTime="20h";
