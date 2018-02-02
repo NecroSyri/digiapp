@@ -2,6 +2,7 @@ function digivolve(){
   switch(d.mon){
       case "v1":
         //botamon
+        d.stage="Baby I";
         d.sleepTime="20h";
         d.sleepVar="45m";
         d.feedInterval="3h";

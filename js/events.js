@@ -12,6 +12,7 @@ function resume(){
 		for(var i=0;i<bg.d.todo.length;i++){
 			debug("resume() > "+bg.d.todo[i]);
 			windowEvent(bg.d.todo[i],undefined);
+			bg.d.todo=null;
 		}
 	}
 }

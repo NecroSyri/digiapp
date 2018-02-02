@@ -50,6 +50,9 @@ function display(mon,anim){
 				}
 			});
 		break;
+		case "idle":
+			myAnimation.loopBetween(1,3,true);
+		break;
 		default:
 			myAnimation.loopBetween(1,1,true);
 			myAnimation.pause();
