@@ -12,6 +12,12 @@ function toggleChooseArrows(toggle){
 }
 
 function display(mon,anim){
+	if(isNull(mon)){
+		mon=bg.d.mon;
+	}
+	if(isNull(anim)){
+		anim=bg.d.state;
+	}
 	$(".inscreen.mon").html("<div id=\"mon\"></div>");
 
 	debug("display() - mon : "+mon+" anim : "+anim)
