@@ -57,7 +57,24 @@ function display(mon,anim){
 			});
 		break;
 		case "idle":
-			myAnimation.loopBetween(1,3,true);
+			var sprite = random(1,3);
+			var dir = random(1,3);
+			myAnimation.fromTo(sprite,sprite,{
+				onCompleteParams:null,
+				onComplete:function(){
+					switch(dir){
+						case 1:
+							$(".mon").css("left",$(".mon").position().left +1);
+						break;
+						case 2:
+							$(".mon").css("left",$(".mon").position().left -1);
+						break;
+						default:
+						break;
+					}
+					display(bg.d.mon,bg.d.state);
+				}
+			});
 		break;
 		default:
 			myAnimation.loopBetween(1,1,true);
