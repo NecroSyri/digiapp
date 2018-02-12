@@ -65,11 +65,13 @@ function display(mon,anim){
 						case 1:
 							if($(".mon").position().left<($(".mon").width()/2-$("#mon").width()/2)){
 								$(".mon").css("left",$(".mon").position().left +2);
+								$(".mon").addClass("flip");
 							}
 						break;
 						case 2:
 							if($(".mon").position().left>-($(".mon").width()/2-$("#mon").width()/2)){
 								$(".mon").css("left",$(".mon").position().left -2);
+								$(".mon").removeClass("flip");
 							}
 						break;
 						default:
