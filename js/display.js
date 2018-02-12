@@ -20,7 +20,6 @@ function display(mon,anim){
 	}
 	$(".inscreen.mon").html("<div id=\"mon\"></div>");
 
-	debug("display() - mon : "+mon+" anim : "+anim)
 	$("#mon").css("background","url(\"../img/sprites/"+mon+".png\")");
 	$("#mon").css("background-position","0% 0");
 	if(bg.d.stage=="Egg"){
@@ -58,16 +57,20 @@ function display(mon,anim){
 		break;
 		case "idle":
 			var sprite = random(1,3);
-			var dir = random(1,3);
+			var dir = random(1,4);
 			myAnimation.fromTo(sprite,sprite,{
 				onCompleteParams:null,
 				onComplete:function(){
 					switch(dir){
 						case 1:
-							$(".mon").css("left",$(".mon").position().left +1);
+							if($(".mon").position().left<($(".mon").width()/2-$("#mon").width()/2)){
+								$(".mon").css("left",$(".mon").position().left +2);
+							}
 						break;
 						case 2:
-							$(".mon").css("left",$(".mon").position().left -1);
+							if($(".mon").position().left>-($(".mon").width()/2-$("#mon").width()/2)){
+								$(".mon").css("left",$(".mon").position().left -2);
+							}
 						break;
 						default:
 						break;
