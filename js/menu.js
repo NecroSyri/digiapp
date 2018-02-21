@@ -11,7 +11,16 @@ function menuSelect(){
 }
 
 function menuConfirm(){
-
+  debug("menuConfirm " + bg.d.menus[bg.d.menu]);
+  switch(bg.d.menus[bg.d.menu]){
+    case "stats":
+      displayStats();
+    break;
+    default:
+      display();
+      debug("menuConfirm " + bg.d.menus[bg.d.menu]);
+    break;
+  }
 }
 
 function menuCancel(){

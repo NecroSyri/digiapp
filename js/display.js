@@ -87,3 +87,7 @@ function display(mon,anim){
 		break;
 	}
 }
+
+function displayStats(){
+	$(".inscreen.mon").html("<div id=\"stats\"></div>");
+}
