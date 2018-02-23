@@ -33,7 +33,7 @@ function display(mon,anim){
 	}else{
 		$("#mon").css("background-size","1600%");
 		var myAnimation = new AM.Sprite(document.getElementById('mon'),{
-			fps:5,
+			fps:3,
 			totalFames:16,
 			columns:16,
 			rows:1
@@ -64,13 +64,13 @@ function display(mon,anim){
 					switch(dir){
 						case 1:
 							if($(".mon").position().left<($(".mon").width()/2-$("#mon").width()/2)){
-								$(".mon").css("left",$(".mon").position().left +2);
+								$(".mon").css("left",$(".mon").position().left + $("#mon").width()/16);
 								$(".mon").addClass("flip");
 							}
 						break;
 						case 2:
 							if($(".mon").position().left>-($(".mon").width()/2-$("#mon").width()/2)){
-								$(".mon").css("left",$(".mon").position().left -2);
+								$(".mon").css("left",$(".mon").position().left - $("#mon").width()/16);
 								$(".mon").removeClass("flip");
 							}
 						break;
